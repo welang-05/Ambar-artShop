@@ -1,0 +1,639 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* FUENTES */
+@import url('/web/assets/bahnschrift.ttf=?family=Bahnschrift:wght@300;400;500;600;700;800&display=swap');
+@import url('/web/assets/Cinzel-Regular.otf?family=Cinzel:wght@300;400;500;600;700;800&display=swap');
+@import url('/web/assets/Quicksand-VariableFont_wght.ttf?family=Quicksand:wght@300;400;500;600;700;800&display=swap');
+
+body{
+    box-sizing: border-box;
+}
+
+/* VARIABLES BASE PARA APLICAR TEMAS */
+@layer base {
+    :root {
+        --color-text-base: 0, 82, 70;
+        --color-text-inverted: 240, 255, 252;
+        --color-text-inverted-accent: 111, 255, 233;
+        --color-text-muted: 75, 128, 118;
+        --color-text-accent: 209, 125, 0;
+        --color-normal: 249, 249, 249;
+        --color-cuasi-normal: 213, 230, 218;
+        --color-button-base: 195, 253, 241;
+        --color-button-accent: 209, 125, 0;
+        --color-button-muted: 75, 128, 118;
+        --color-button-disabled: 214, 226, 223;
+        --opacity: 100;
+        --david: url("/web/assets/david03a.png");
+        --invert1: 21%; 
+        --sepia1: 84%;
+        --saturate1: 628%; 
+        --hue1: 127deg;
+        --brightness1: 97%;
+        --contrast1: 101%;
+        --invert2: 85%; 
+        --sepia2: 45%;
+        --saturate2: 483%; 
+        --hue2: 95deg;
+        --brightness2: 108%;
+        --contrast2: 106%;
+    }
+
+    .theme2 {
+        --color-text-base: 32, 6, 0;
+        --color-text-inverted: 255, 248, 246;
+        --color-text-inverted-accent: 255, 142, 116;
+        --color-text-muted: 60, 56, 55;
+        --color-text-accent: 0, 110, 94;
+        --color-normal: 249, 249, 249;
+        --color-cuasi-normal: 238, 232, 224;
+        --color-button-base: 224, 224, 224;
+        --color-button-accent: 20, 145, 122;
+        --color-button-muted: 75, 128, 118;
+        --color-button-disabled: 196, 158, 100;
+        --david: url("/web/assets/david03b.png");
+        --invert1: 4%; 
+        --sepia1: 69%;
+        --saturate1: 5265%; 
+        --hue1: 43deg;
+        --brightness1: 127%;
+        --contrast1: 114%;
+        --invert2: 82%; 
+        --sepia2: 25%;
+        --saturate2: 4785%; 
+        --hue2: 310deg;
+        --brightness2: 100%;
+        --contrast2: 102%;
+    }
+
+    .theme3 {
+        --color-text-base: 0, 30, 36;
+        --color-text-inverted: 240, 253, 255;
+        --color-text-inverted-accent: 129, 234, 255;
+        --color-text-muted: 255, 56, 189;
+        --color-text-accent: 0, 177, 211;
+        --color-normal: 249, 249, 249;
+        --color-cuasi-normal: 238, 232, 224;
+        --color-button-base: 0, 177, 211;
+        --color-button-accent: 255, 56, 189;
+        --color-button-muted: 209, 125, 0;
+        --color-button-disabled: 103, 191, 208;
+        --david: url("/web/assets/david03c.png");
+        --invert1: 10%; 
+        --sepia1: 13%;
+        --saturate1: 3461%; 
+        --hue1: 145deg;
+        --brightness1: 97%;
+        --contrast1: 103%;
+        --invert2: 75%; 
+        --sepia2: 91%;
+        --saturate2: 419%; 
+        --hue2: 164deg;
+        --brightness2: 104%;
+        --contrast2: 101%;
+    }
+
+    .theme4 {
+        --color-text-base: 246, 255, 253;
+        --color-text-inverted: 0, 82, 70;
+        --color-text-inverted-accent: 1, 108, 85;
+        --color-text-muted: 215, 227, 224;
+        --color-text-accent: 255, 176, 57;
+        --color-normal: 18, 18, 18;
+        --color-cuasi-normal: 12, 12, 12;
+        --color-button-base: 75, 128, 118;
+        --color-button-accent: 255, 154, 2;
+        --color-button-muted: 91, 120, 115;
+        --color-button-disabled: 113, 123, 120;
+        --david: url("/web/assets/david03a.png");
+        --invert1: 100%; 
+        --sepia1: 55%;
+        --saturate1: 1548%; 
+        --hue1: 176deg;
+        --brightness1: 104%;
+        --contrast1: 107%;
+        --invert2: 32%; 
+        --sepia2: 16%;
+        --saturate2: 3608%; 
+        --hue2: 128deg;
+        --brightness2: 90%;
+        --contrast2: 99%;
+    }
+    
+    .theme5 {
+        --color-text-base: 255, 248, 246;
+        --color-text-inverted: 32, 6, 0;
+        --color-text-inverted-accent: 173, 87, 0;
+        --color-text-muted: 134, 209, 198;
+        --color-text-accent: 227, 221, 219;
+        --color-normal: 18, 18, 18;
+        --color-cuasi-normal: 12, 12, 12;
+        --color-button-base: 45, 45, 45;
+        --color-button-accent: 0, 215, 176;
+        --color-button-muted: 13, 155, 129;
+        --color-button-disabled: 164, 137, 96;
+        --david: url("/web/assets/david03b.png");
+        --invert1: 100%; 
+        --sepia1: 30%;
+        --saturate1: 754%; 
+        --hue1: 340deg;
+        --brightness1: 104%;
+        --contrast1: 112%;
+        --invert2: 37%; 
+        --sepia2: 27%;
+        --saturate2: 2307%; 
+        --hue2: 360deg;
+        --brightness2: 97%;
+        --contrast2: 104%;
+    }
+
+    .theme6 {
+        --color-text-base: 240, 253, 255;
+        --color-text-inverted: 0, 30, 36;
+        --color-text-inverted-accent: 4, 85, 97;
+        --color-text-muted: 255, 56, 189;
+        --color-text-accent: 0, 177, 211;
+        --color-normal: 18, 18, 18;
+        --color-cuasi-normal: 12, 12, 12;
+        --color-button-base: 0, 177, 211;
+        --color-button-asccent: 255, 56, 189;
+        --color-button-muted: 165, 127, 70;
+        --color-button-disabled: 131, 171, 180;
+        --david: url("/web/assets/david03c.png");
+        --invert1: 99%; 
+        --sepia1: 20%;
+        --saturate1: 1176%; 
+        --hue1: 172deg;
+        --brightness1: 100%;
+        --contrast1: 105%;
+        --invert2: 26%; 
+        --sepia2: 16%;
+        --saturate2: 3528%; 
+        --hue2: 147deg;
+        --brightness2: 93%;
+        --contrast2: 97%;
+    }
+
+    .filtro1{
+        filter: invert(var(--invert1)) sepia(var(--sepia1)) saturate(var(--saturate1)) hue-rotate(var(--hue1)) brightness(var(--brightness1)) contrast(var(--contrast1));
+    }
+
+    .filtro2{
+        filter: invert(var(--invert2)) sepia(var(--sepia2)) saturate(var(--saturate2)) hue-rotate(var(--hue2)) brightness(var(--brightness2)) contrast(var(--contrast2));
+    }
+
+    /* ESTILOS POSICIÓN */
+
+    .c-flex{
+    @apply flex items-center justify-center content-center place-items-center;
+}
+}
+
+/* VARIABLES AUXILIARES SOLO PARA VER COLORES PREVIO A APLICARLOS ARRIBA */
+.color_root {
+    --color-text-base: rgb(0, 82, 70);
+    --color-text-inverted: rgb(240, 255, 252);
+    --color-text-inverted-accent: rgb(111, 255, 233);
+    --color-text-muted: rgb(75, 128, 118);
+    --color-text-accent: rgb(209, 125, 0);
+    --color-normal: rgb(249, 249, 249);
+    --color-cuasi-normal: rgb(213, 230, 218);
+    --color-button-base: rgb(195, 253, 241);
+    --color-button-accent: rgb(209, 125, 0);
+    --color-button-muted: rgb(75, 128, 118);
+    --color-button-disabled: rgb(214, 226, 223);
+    --logo-1: url('../assets/logo01.png');
+}
+
+.color_theme2 {
+    --color-text-base: rgb(32, 6, 0);
+    --color-text-inverted: rgb(255, 248, 246);
+    --color-text-inverted-accent: rgb(255, 142, 116);
+    --color-text-muted: rgb(60, 56, 55);
+    --color-text-accent: rgb(4, 161, 138);
+    --color-normal: rgb(249, 249, 249);
+    --color-cuasi-normal: rgb(238, 232, 224);
+    --color-button-base: rgb(224, 224, 224);
+    --color-button-accent: rgb(20, 145, 122);
+    --color-button-muted: rgb(75, 128, 118);
+    --color-button-disabled: rgb(196, 158, 100);
+    --logo-1: url("../assets/logo01.png");
+}
+
+.color_theme3 {
+    --color-text-base: rgb(0, 30, 36);
+    --color-text-inverted: rgb(240, 253, 255);
+    --color-text-inverted-accent: rgb(129, 234, 255);
+    --color-text-muted: rgb(255, 56, 189);
+    --color-text-accent: rgb(0, 177, 211);
+    --color-normal: rgb(249, 249, 249);
+    --color-cuasi-normal: rgb(238, 232, 224);
+    --color-button-base: rgb(0, 177, 211);
+    --color-button-accent: rgb(255, 56, 189);
+    --color-button-muted: rgb(209, 125, 0);
+    --color-button-disabled: rgb(103, 191, 208);
+    --logo-1: url('../assets/logo01.png');
+}
+
+.color_theme4 {
+    --color-text-base: rgb(246, 255, 253);
+    --color-text-inverted: rgb(0, 82, 70);
+    --color-text-inverted-accent: rgb(1, 108, 85);
+    --color-text-muted: rgb(215, 227, 224);
+    --color-text-accent: rgb(255, 176, 57);
+    --color-normal: rgb(18, 18, 18);
+    --color-cuasi-normal: rgb(12, 12, 12);
+    --color-button-base: rgb(75, 128, 118);
+    --color-button-accent: rgb(255, 154, 2);
+    --color-button-muted: rgb(91, 120, 115);
+    --color-button-disabled: rgb(113, 123, 120);
+}
+
+.color_theme5 {
+    --color-text-base: rgb(255, 248, 246);
+    --color-text-inverted: rgb(32, 6, 0);
+    --color-text-inverted-accent: rgb(173, 87, 0);
+    --color-text-muted: rgb(134, 209, 198);
+    --color-text-accent: rgb(227, 221, 219);
+    --color-normal: rgb(18, 18, 18);
+    --color-cuasi-normal: rgb(12, 12, 12);
+    --color-button-base: rgb(45, 45, 45);
+    --color-button-accent: rgb(0, 215, 176);
+    --color-button-muted: rgb(13, 155, 129);
+    --color-button-disabled: rgb(164, 137, 96);
+}
+
+.color_theme6 {
+    --color-text-base: rgb(240, 253, 255);
+    --color-text-inverted: rgb(0, 30, 36);
+    --color-text-inverted-accent: rgb(4, 85, 97);
+    --color-text-muted: rgb(255, 56, 189);
+    --color-text-accent: rgb(0, 177, 211);
+    --color-normal: rgb(18, 18, 18);
+    --color-cuasi-normal: rgb(12, 12, 12);
+    --color-button-base: rgb(0, 177, 211);
+    --color-button-accent: rgb(255, 56, 189);
+    --color-button-muted: rgb(165, 127, 70);
+    --color-button-disabled: rgb(131, 171, 180);
+    --logo-1: url('../assets/logo01.png');
+}
+
+
+/* MOSTRAR AL TERMINAR RENDERIZADO DE VUE */
+[v-cloak] {
+    display: none;
+}
+
+/* ACCIÓN AL SCROLLEAR */
+
+
+/* BOTONES */
+
+.boton0 {
+    @apply bg-white border border-black py-1 px-2;
+}
+
+.boton1 {
+    @apply p-3 m-2 rounded-md text-sm text-skin-base font-bahnschrift bg-skin-normal shadow-[1px_1px_5px_rgba(var(--color-button-muted),0.3)] hover:shadow-[1px_1px_5px_rgba(var(--color-button-accent),0.6)] hover:rounded-2xl hover:text-skin-inverted hover:bg-skin-accent transition-all ease-in-out duration-300;
+}
+
+.boton1s{
+    @apply p-1 m-1 h-7 rounded-md text-xs text-skin-base font-bahnschrift bg-skin-normal shadow-[1px_1px_5px_rgba(var(--color-button-muted),0.3)] hover:shadow-[1px_1px_5px_rgba(var(--color-button-accent),0.6)] hover:rounded-2xl hover:text-skin-inverted hover:bg-skin-accent transition-all ease-in-out duration-300;
+}
+
+.boton2 {
+    @apply p-4 m-2 rounded-xl text-sm text-skin-base font-bahnschrift bg-skin-base shadow-[1px_1px_5px_rgba(var(--color-button-base),0.7)] hover:shadow-[1px_1px_5px_rgba(var(--color-button-muted),0.6)] hover:rounded-2xl hover:text-skin-inverted hover:bg-skin-accent transition-all ease-in-out duration-300;
+}
+
+.boton2s {
+    @apply p-1 m-2 h-9 rounded-xl text-xs text-skin-base font-bahnschrift bg-skin-base shadow-[1px_1px_5px_rgba(var(--color-button-base),0.7)] hover:shadow-[1px_1px_5px_rgba(var(--color-button-muted),0.6)] hover:rounded-2xl hover:text-skin-inverted hover:bg-skin-muted transition-all ease-in-out duration-300;
+}
+
+.boton3 {
+    @apply p-3 m-3 rounded-md text-sm text-skin-inverted font-bahnschrift
+     font-semibold bg-skin-muted border border-skin-normal shadow-[0px_8px_24px_rgba(var(--color-button-muted),0.2)] hover:bg-skin-accent hover:shadow-[0px_8px_24px_rgba(var(--color-button-accent),0.2)] transition-all ease-in-out duration-200;
+}
+
+.boton3s {
+    @apply p-1 m-3 h-9 rounded-md text-xs text-skin-inverted font-semibold bg-skin-muted border border-skin-normal shadow-[0px_8px_24px_rgba(var(--color-button-muted),0.2)] hover:bg-skin-accent hover:shadow-[0px_8px_24px_rgba(var(--color-button-accent),0.2)] transition-all ease-in-out duration-200;
+}
+
+.boton4 {
+    @apply p-4 m-3 rounded-full text-skin-inverted text-sm bg-skin-muted  border opacity-60 border-skin-normal shadow-[0px_8px_24px_rgba(var(--color-button-muted),0.2)] hover:bg-skin-accent hover:shadow-[0px_8px_24px_rgba(var(--color-button-accent),0.2)] transition-all hover:opacity-100 ease-in-out duration-200;
+}
+
+.boton4s {
+    @apply p-1 m-2 h-10 rounded-full text-skin-inverted text-xs bg-skin-muted  border opacity-60 border-skin-normal shadow-[0px_8px_24px_rgba(var(--color-button-muted),0.2)] hover:bg-skin-accent hover:shadow-[0px_8px_24px_rgba(var(--color-button-accent),0.2)] transition-all hover:opacity-100 ease-in-out duration-200;
+}
+
+.boton5 {
+    @apply p-3 m-3 rounded bg-skin-normal text-skin-base text-sm font-quicksand hover:shadow-[0px_1px_4px_rgba(var(--color-button-accent),0.3)] transition-all ease-in-out duration-200;
+}
+
+.boton5s {
+    @apply p-1 m-2 rounded bg-skin-normal text-skin-base text-xs font-quicksand hover:shadow-[0px_1px_4px_rgba(var(--color-button-accent),0.3)] transition-all ease-in-out duration-200;
+}
+
+.tclaro{
+    @apply  w-14 h-14 m-1 text-center bg-gray-200 rounded-full shadow-[1px_1px_5px_rgba(var(--color-text-base),0.2)] hover:shadow-[1px_1px_5px_rgba(var(--color-button-muted),0.4)] transition-all ease-in duration-300;
+}
+
+.toscuro{
+    @apply  w-14 h-14 m-1 text-center bg-gray-800 rounded-full shadow-[1px_1px_5px_rgba(var(--color-text-base),0.2)] hover:shadow-[1px_1px_5px_rgba(var(--color-button-muted),0.4)] transition-all ease-in duration-300;
+}
+
+.botonredondo{
+    @apply w-12 h-12 text-3xl text-center text-skin-base rounded-2xl hover:text-skin-inverted hover:rounded-full  hover:bg-skin-accent ease-in duration-300 shadow-[1px_1px_5px_rgba(var(--color-text-base),0.2)] hover:shadow-[1px_1px_5px_rgba(var(--color-button-accent),0.4)];
+}
+
+
+/* ESTILOS EXTRAS MARIALE */
+
+#section{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #ff000000;
+    background-position: 25% 25%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    clip-path: circle(0px at center);
+}
+.contenedor{
+    position: relative;
+    margin-top:  350vh;
+    /* background: #fff; */
+}
+.h2{
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+    margin-top: 300px;
+    
+}
+
+
+/* ESTILOS PARA ANIMAR */
+
+.venus{
+/*     position: relative; */
+    transform: translate(var(--translateX), var(--translateY));
+	will-change: transform;
+}
+
+.centro{
+    transform: scale(var(--scala));
+    will-change: transform;
+}
+
+.nacimiento{
+/*     background-color: red; */
+    height: 100vh;
+    width: screen;
+    background: url('/web/assets/index/Venusborn/birth_back.jpg');
+    background-repeat: no-repeat;
+    background-size: 130%;
+    
+}
+
+.element{
+    width: 100px;
+    height: 100px;
+    background-color: crimson;
+    opacity: var(--opacity);
+    will-change: opacity;
+}
+
+.bannerA{
+    transform: translateY(var(--bannerA-translateY));
+	will-change: transform;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.bannerB{
+    transform: translateX(var(--bannerB-translateX));
+	will-change: transform;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.fadeIn { opacity: var(--opacidad); }
+
+/* OTROS ESTILOS PROPIOS */
+
+.sus{
+    background-size: 230% 230% !important;
+    background: linear-gradient(90deg, rgba(var(--color-button-accent),1) 0%, rgba(var(--color-button-accent),1) 50%, rgba(var(--color-text-base),1) 50%);
+    transition: .4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background-position: right;
+}
+
+.sus:hover{
+    background-position: left;
+}
+
+.logo01{
+    width: 30px;
+    background: var(--logo-1);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.glass1 {
+    background: rgba(var(--color-normal), 0.4);
+    box-shadow: 0 4px 20px rgba(var(--color-text-base), 0.07);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: .4s;
+}
+
+.glass1:hover{
+    background: rgba(var(--color-normal), 0.8);
+}
+
+.glass2 {
+    background: rgba(var(--color-normal), 0.15);
+    box-shadow: 0 4px 20px rgba(var(--color-text-base), 0.07);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    border: 1px solid rgba(var(--color), 0.1);
+    transition: .4s;
+}
+
+.backHeaderGallery{
+    background-image: var(--david);
+    background-size:32%;
+    background-repeat: no-repeat;
+    background-position: bottom -8px right 1px;;
+}
+
+/* TEMAS SEBAS */
+
+.file-select {
+    position: relative;
+    display: inline-block;
+  }
+  
+.file-select::before {
+    background-color: #5678EF;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Seleccionar'; /* testo por defecto */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  
+.file-select input[type="file"] {
+    opacity: 0;
+    width: 200px;
+    height: 32px;
+    display: inline-block;
+  }
+  
+#src-file1::before {
+    content: 'Select your file';
+  }
+
+
+
+/* FILTROS DE COLORES PARA ÍCONOS */
+
+.filter1a{
+    filter: invert(21%) sepia(84%) saturate(628%) hue-rotate(127deg) brightness(97%) contrast(101%);
+}
+
+.filter1b{
+    filter: invert(85%) sepia(45%) saturate(483%) hue-rotate(95deg) brightness(108%) contrast(106%);
+}
+
+.filter2a{
+    filter: invert(4%) sepia(69%) saturate(5265%) hue-rotate(43deg) brightness(127%) contrast(114%);
+}
+
+.filter2b{
+    filter: invert(82%) sepia(25%) saturate(4785%) hue-rotate(310deg) brightness(100%) contrast(102%);
+}
+
+.filter3a{
+    filter: invert(10%) sepia(13%) saturate(3461%) hue-rotate(145deg) brightness(97%) contrast(103%);
+}
+
+.filter3b{
+    filter: invert(75%) sepia(91%) saturate(419%) hue-rotate(164deg) brightness(104%) contrast(101%);
+}
+
+.filter4a{
+    filter: invert(100%) sepia(55%) saturate(1548%) hue-rotate(176deg) brightness(104%) contrast(107%);
+}
+
+.filter4b{
+    filter: invert(32%) sepia(16%) saturate(3608%) hue-rotate(128deg) brightness(90%) contrast(99%);
+}
+
+.filter5a{
+    filter: invert(100%) sepia(30%) saturate(754%) hue-rotate(340deg) brightness(104%) contrast(112%);
+}
+
+.filter5b{
+    filter: invert(37%) sepia(27%) saturate(2307%) hue-rotate(360deg) brightness(97%) contrast(104%);;
+}
+
+.filter6a{
+    filter: invert(99%) sepia(20%) saturate(1176%) hue-rotate(172deg) brightness(100%) contrast(105%);
+}
+
+.filter6b{
+    filter: invert(26%) sepia(16%) saturate(3528%) hue-rotate(147deg) brightness(93%) contrast(97%);
+}
+
+
+/* TRANSICIÓN AL CARGAR PÁGINA */
+.aparecer {
+    transition: .8s;
+    animation: FadeIn .8s;
+    -webkit-animation: FadeIn .8s;
+    -moz-animation: FadeIn .8s;
+    -o-animation: FadeIn .8s;
+    -ms-animation: FadeIn .8s;
+}
+
+.aparecer2 {
+    transition: 2s ease;
+    animation: FadeIn 2s;
+    -webkit-animation: FadeIn 2s;
+    -moz-animation: FadeIn 2s;
+    -o-animation: FadeIn 2s ;
+    -ms-animation: FadeIn 2s ;
+}
+
+@keyframes FadeIn {
+    0% {
+        opacity: 0.0
+    }
+
+    ;
+
+    100% {
+        opacity: 1
+    }
+
+    ;
+}
+
+@-moz-keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* MEDIA QUERIES EXTRA */
+
+@media (max-width: 768px) {
+    .backHeaderGallery{
+        background-image: none;
+    }
+}

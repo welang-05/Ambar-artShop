@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./web/styles/tailwind.css">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/web/assets/logo01.png" type="image/x-icon">
+    <!-- iconos -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <!-- librería flowbite -->
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
+    <title>Plantilla update files</title>
+</head>
+
+<body id="app">
+
+    <input id="input-file" type="file" class="" @change="select_file" />
+    <label id="input-file-label" class="" for="input-file">Choose file</label>
+    <button @click="upload_file_client" style="margin: 1.2rem; background-color:rgb(68, 0, 255);">Subir avatar</button>
+    <button @click="upload_file_product" style="margin: 1.2rem; background-color:rgb(94, 255, 1);">Subir foto
+        producto</button>
+    <button @click="login" style="margin: 1.2rem; background-color:rgb(0, 255, 128);">Login</button>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="/js/subirarchivosprueba.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./web/styles/tailwind.css">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/web/assets/logo01.png" type="image/x-icon">
+    <!-- iconos -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <title>Home | AMBAR</title>
+</head>
+
+<body>
+
+    <div id="app" v-cloak>
+        <div :class="tema=='tema_1' ? '' : tema=='tema_2' ? 'theme2' : tema=='tema_3' ? 'theme3' : tema=='tema_4' ? 'theme4' : tema=='tema_5' ? 'theme5' : tema=='tema_6' ? 'theme6' : ''"
+            class="min-h-screen bg-skin-normal aparecer2">
+
+
+            <!-- ANIMACIÓN INICIAL -->
+            <div class="pt-28 c-flex">
+                <img class="w-60"
+                    :src=" tema=='tema_4' || tema=='tema_5' || tema=='tema_6' ? '/web/assets/logo02L.png' : '/web/assets/logo01L.png'"
+                    alt="">
+                <section id="section">
+
+                    <!-- EL NACIMIENTO DE VENUS -->
+                    <div class="nacimiento  overflow-hidden">
+
+                        <!-- Flores -->
+                        <div class="venus fixed bg-[url('/web/assets/index/Venusborn/v02.png')] bg-contain bg-no-repeat top-0 w-[60rem]  h-[60rem] z-[27] "
+                            data-mod-y="2" data-mod-x="4"></div>
+                        <div class="venus fixed bg-[url('/web/assets/index/Venusborn/v02.png')] bg-contain bg-no-repeat top-12 right-12 w-[60rem]  h-[60rem] z-[27]  rotate-45 left-96"
+                            data-mod-y="2" data-mod-x="8"></div>
+                        <div class="venus fixed bg-[url('/web/assets/index/Venusborn/v02.png')] bg-contain bg-no-repeat  w-[60rem]  h-[60rem] z-[27] rotate-90 right-96"
+                            data-mod-y="2" data-mod-x="6"></div>
+
+                        <!-- SUJETOS A LA IZQUIERDA -->
+                        <div class="venus fixed bg-[url('/web/assets/index/Venusborn/v03.png')] bg-contain bg-no-repeat -top-[4.5rem] -left-36  w-[45rem]  h-[45rem] z-[29] -translate-x-96"
+                            data-mod-y="8" data-mod-x="10"></div>
+
+                        <!-- VEEEEEEEENUS -->
+                        <div class="venus centro fixed bg-[url('/web/assets/index/Venusborn/v01.png')] bg-contain bg-no-repeat right-10 w-[60rem]  h-[60rem] z-[29] top-12"
+                            data-mod-y="20" data-mod-x="0" scala="1.15"></div>
+
+                        <!-- NINFA A LA DERECHA -->
+                        <div class="venus fixed bg-[url('/web/assets/index/Venusborn/v04.png')] bg-contain bg-no-repeat -top-36 left-[70rem] w-[70rem]  h-[70rem] z-[28]"
+                            data-mod-y="10" data-mod-x="-5"></div>
+
+                        <!-- FLORES FRENTE -->
+                        <div class="venus fixed bg-[url('/web/assets/index/Venusborn/v02.png')] bg-contain bg-no-repeat  w-[70rem]  h-[70rem] z-[30] blur-[1px] -rotate-45"
+                            data-mod-y="4" data-mod-x="-25"></div>
+                        <div class="venus fixed bg-[url('/web/assets/index/Venusborn/v02.png')] bg-contain bg-no-repeat  w-[150rem]  h-[150rem] z-[30] blur-[2px] left-[30rem] -top-[30rem] -rotate-45"
+                            data-mod-y="6" data-mod-x="-60"></div>
+                        <div class="venus fixed bg-[url('/web/assets/index/Venusborn/v02.png')] bg-contain bg-no-repeat  w-[300rem]  h-[300rem] z-[30] blur-[6px] left-[5rem] bottom-3
+               -rotate-90" data-mod-y="10" data-mod-x="-190"></div>
+
+                        <!-- NIEBLA FRENTE -->
+
+                        <div class="venus fixed bg-[url('/web/assets/index/Venusborn/niebla.png')] bg-contain bg-no-repeat  w-[130rem]  h-[130rem] z-[31] blur-[4px] -bottom-[90rem] right-[1rem]"
+                            data-mod-y="-70" data-mod-x="10"></div>
+
+
+                    </div>
+
+            </div>
+
+            <!-- CUERPO -->
+
+            <main class="contenedor">
+
+                <section class="flex justify-around w-full h-[10vh] bg-gradient-to-t from-gray-100 overflow-hidden"></section>
+
+                <section class="flex flex-col justify-around w-full h-[310vh] bg-gray-100 overflow-hidden">
+                    <div>
+                        <p class="fadeIn bannerB pb-12 antialiased font-cinzel text-6xl md:text-9xl text-lime-700 mt-40 md:ml-[40rem] ml-44 transition-transform ease-in-out" data-mod-x="-15">VENUS</p>
+                        <p class="fadeIn md:p-16 p-8 bannerB antialiased font-cinzel text-slate-600 md:text-4xl text-sm md:ml-60 -ml-24 first-letter:uppercase md:first-letter:text-9xl first-letter:text-4xl first-letter:text-green-500 transition-transform ease-in" data-mod-x="10">I see into a pool, her face is a mirror.</p>
+                        <p class="fadeIn bannerB md:p-16 p-8 antialiased font-cinzel text-slate-600 text-sm md:text-4xl -ml-24 md:ml-60" data-mod-x="10">Venus sits by me and smiles.</p>
+                        <p class="fadeIn bannerB md:p-16 p-8 antialiased font-cinzel text-slate-600 text-sm md:text-4xl -ml-24 md:ml-60" data-mod-x="10">She goes forward and cups her hands,</p>
+                        <p class="fadeIn bannerB md:p-16 p-8 antialiased font-cinzel text-slate-600 text-sm md:text-4xl -ml-24 md:ml-60" data-mod-x="10">drinks from my spoils.</p>
+                        <p class="fadeIn bannerB md:p-16 p-8 antialiased font-cinzel text-slate-600 text-sm md:text-4xl -ml-24 md:ml-60"data-mod-x="10">I watch her drink all my tears dry.</p>
+                        <p class="fadeIn bannerB md:p-16 p-8 antialiased font-cinzel text-slate-600 text-sm md:text-4xl -ml-24 md:ml-60" data-mod-x="10">Venus is more beautiful than spring,</p>
+                        <p class="fadeIn bannerB md:p-16 p-8 antialiased font-cinzel text-slate-600 text-sm md:text-4xl -ml-24 md:ml-60" data-mod-x="10">and woman is the promise she brings.</p>
+                    </div>
+
+                    <div class="c-flex  -mt-72">
+                        <a class="mr-4 ml-6 px-5 py-3 text-opacity-80 text-skin-inverted hover:text-skin-base text-3xl sus hover:shadow-[1px_1px_5px_rgba(var(--color-button-accent),0.8)]"
+                                href="/main.html">ENTER</a>
+                    </div>
+                </section>
+
+
+            </main>
+
+        </div>
+    </div>
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="/node_modules/basicscroll/dist/basicScroll.min.js"></script>
+    <script src="./web/scripts/index.js"></script>
+
+
+
+</body>
+
+
+
+
+</html>

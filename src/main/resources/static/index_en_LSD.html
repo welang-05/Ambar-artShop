@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./web/styles/tailwind.css">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/web/assets/logo01.png" type="image/x-icon">
+    <!-- iconos -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <title>Home | AMBAR</title>
+</head>
+
+<body>
+
+    <div id="app" v-cloak>
+        <div :class="tema=='tema_1' ? '' : tema=='tema_2' ? 'theme2' : tema=='tema_3' ? 'theme3' : tema=='tema_4' ? 'theme4' : tema=='tema_5' ? 'theme5' : tema=='tema_6' ? 'theme6' : ''"
+            class="min-h-screen bg-skin-normal aparecer2">
+
+
+            <!-- CUERPO -->
+
+            <main class="contenedor">
+
+                <section class="flex justify-around w-full h-[10vh] bg-gradient-to-t from-gray-100 overflow-hidden"></section>
+
+                <section class="flex flex-col justify-around w-full h-[310vh] bg-gray-100 overflow-hidden">
+                    <div>
+                        <p class="bannerB pb-12 antialiased font-cinzel text-6xl md:text-9xl text-lime-700 mt-40 md:ml-[40rem] ml-44 transition-transform ease-in-out" data-mod-x="-15">VENUS</p>
+                        <p class="md:p-16 p-8 bannerB antialiased font-cinzel text-slate-600 md:text-4xl text-sm md:ml-60 -ml-24 first-letter:uppercase md:first-letter:text-9xl first-letter:text-4xl first-letter:text-green-500 transition-transform ease-in" data-mod-x="10">I see into a pool, her face is a mirror.</p>
+                        <p class="bannerB md:p-16 p-8 antialiased font-cinzel text-slate-600 text-sm md:text-4xl -ml-24 md:ml-60" data-mod-x="10">Venus sits by me and smiles.</p>
+                        <p class="bannerB md:p-16 p-8 antialiased font-cinzel text-slate-600 text-sm md:text-4xl -ml-24 md:ml-60" data-mod-x="10">She goes forward and cups her hands,</p>
+                        <p class="bannerB md:p-16 p-8 antialiased font-cinzel text-slate-600 text-sm md:text-4xl -ml-24 md:ml-60" data-mod-x="10">drinks from my spoils.</p>
+                        <p class="bannerB md:p-16 p-8 antialiased font-cinzel text-slate-600 text-sm md:text-4xl -ml-24 md:ml-60"data-mod-x="10">I watch her drink all my tears dry.</p>
+                        <p class="bannerB md:p-16 p-8 antialiased font-cinzel text-slate-600 text-sm md:text-4xl -ml-24 md:ml-60" data-mod-x="10">Venus is more beautiful than spring,</p>
+                        <p class="bannerB md:p-16 p-8 antialiased font-cinzel text-slate-600 text-sm md:text-4xl -ml-24 md:ml-60" data-mod-x="10">and woman is the promise she brings.</p>
+                    </div>
+
+                    <div class="c-flex  -mt-72">
+                        <a class="mr-4 ml-6 px-5 py-3 text-opacity-80 text-skin-inverted hover:text-skin-base text-3xl sus hover:shadow-[1px_1px_5px_rgba(var(--color-button-accent),0.8)]"
+                                href="/main.html">ENTER</a>
+                    </div>
+                </section>
+
+
+            </main>
+
+        </div>
+    </div>
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="/node_modules/basicscroll/dist/basicScroll.min.js"></script>
+    <script src="./web/scripts/index.js"></script>
+
+
+
+</body>
+
+
+
+
+</html>

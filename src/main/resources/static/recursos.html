@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/web/styles/tailwind.css">
+  <title>Recursos</title>
+
+</head>
+
+<body>
+
+  <div id="app" v-cloak class="c-flex min-h-full w-full transition-all ease-in-out duration-500 bg-skin-normal ">
+
+    <div
+      :class="tema=='tema_1' ? '' : tema=='tema_2' ? 'theme2' : tema=='tema_3' ? 'theme3' : tema=='tema_4' ? 'theme4' : tema=='tema_5' ? 'theme5' : tema=='tema_6' ? 'theme6' : ''"
+      class="w-full min-h-screen flex flex-col aparecer2 bg-skin-normal">
+
+      <!-- HEADER CON NAV -->
+      <header>
+
+        <div ref="navbar" class="opacity-0 hidden md:flex justify-between w-screen p-2 fixed z-50 place-items-center">
+
+          <img
+            :src=" tema=='tema_4' || tema=='tema_5' || tema=='tema_6' ? '/web/assets/logo02.png' : '/web/assets/logo01.png'"
+            class="w-[3.5%] h-[3.5%] ml-4 aparecer transition-all ease-in-out duration-300" alt="logo">
+          <nav class="flex font-bahnschrift">
+            <div class="flex items-center">
+              <a class="mr-6 ml-6 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100"
+                href="/index.html">Home</a>
+              <div class="font-xs opacity-30 text-skin-base">|</div>
+              <a class="mr-6 ml-6 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100"
+                href="/web/public/wallofartworks.html">Store</a>
+              <div class="font-xs opacity-30 text-skin-base">|</div>
+              <a class="mr-6 ml-6 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100"
+                href="/web/public/wallofartist.html">Artists</a>
+              <div class="font-xs opacity-30 text-skin-base">|</div>
+              <a class="mr-6 ml-6 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100"
+                href="/web/public/shoppingcart.html">Shop cart</a>
+            </div>
+            <div class="flex items-center mr-6 ml-6">
+              <a class="mr-4 ml-6 px-5 py-3 text-opacity-80 text-skin-inverted hover:text-skin-base  sus"
+                href="javascript:void(0);">Log in</a>
+              <div class="font-xs opacity-30 text-skin-base">|</div>
+              <a class="mr-6 ml-3 text-skin-base text-opacity-100" href="javascript:void(0);">Sign in</a>
+            </div>
+          </nav>
+
+        </div>
+
+      </header>
+
+      <!-- ANIMACIÓN INICIAL -->
+      <div class="mt-28 c-flex">
+        <img class="w-60" src="/web/assets/logo01L.png" alt="">
+        <section id="section">
+
+          <!-- EL NACIMIENTO DE VENUS -->
+          <div class="nacimiento  overflow-hidden">
+
+            <!-- Flores -->
+            <div
+              class="venus fixed bg-[url('/web/assets/index/Venusborn/v02.png')] bg-contain bg-no-repeat top-0 w-[60rem]  h-[60rem] z-[27] "
+              data-mod-y="2" data-mod-x="4"></div>
+            <div
+              class="venus fixed bg-[url('/web/assets/index/Venusborn/v02.png')] bg-contain bg-no-repeat top-12 right-12 w-[60rem]  h-[60rem] z-[27]  rotate-45 left-96"
+              data-mod-y="2" data-mod-x="8"></div>
+            <div
+              class="venus fixed bg-[url('/web/assets/index/Venusborn/v02.png')] bg-contain bg-no-repeat  w-[60rem]  h-[60rem] z-[27] rotate-90 right-96"
+              data-mod-y="2" data-mod-x="6"></div>
+
+            <!-- SUJETOS A LA IZQUIERDA -->
+            <div
+              class="venus fixed bg-[url('/web/assets/index/Venusborn/v03.png')] bg-contain bg-no-repeat -top-[4.5rem] -left-36  w-[45rem]  h-[45rem] z-[29] -translate-x-96"
+              data-mod-y="8" data-mod-x="10"></div>
+
+            <!-- VEEEEEEEENUS -->
+            <div
+              class="venus centro fixed bg-[url('/web/assets/index/Venusborn/v01.png')] bg-contain bg-no-repeat right-10 w-[60rem]  h-[60rem] z-[29] top-12"
+              data-mod-y="20" data-mod-x="0" scala="1.15"></div>
+
+            <!-- NINFA A LA DERECHA -->
+            <div
+              class="venus fixed bg-[url('/web/assets/index/Venusborn/v04.png')] bg-contain bg-no-repeat -top-36 left-[70rem] w-[70rem]  h-[70rem] z-[28]"
+              data-mod-y="10" data-mod-x="-5"></div>
+
+            <!-- FLORES FRENTE -->
+            <div
+              class="venus fixed bg-[url('/web/assets/index/Venusborn/v02.png')] bg-contain bg-no-repeat  w-[70rem]  h-[70rem] z-[30] blur-[1px] -rotate-45"
+              data-mod-y="4" data-mod-x="-25"></div>
+            <div
+              class="venus fixed bg-[url('/web/assets/index/Venusborn/v02.png')] bg-contain bg-no-repeat  w-[150rem]  h-[150rem] z-[30] blur-[2px] left-[30rem] -top-[30rem] -rotate-45"
+              data-mod-y="6" data-mod-x="-60"></div>
+            <div class="venus fixed bg-[url('/web/assets/index/Venusborn/v02.png')] bg-contain bg-no-repeat  w-[300rem]  h-[300rem] z-[30] blur-[6px] left-[5rem] bottom-3
+               -rotate-90" data-mod-y="10" data-mod-x="-190"></div>
+
+            <!-- NIEBLA FRENTE -->
+
+            <div
+              class="venus fixed bg-[url('/web/assets/index/Venusborn/niebla.png')] bg-contain bg-no-repeat  w-[130rem]  h-[130rem] z-[31] blur-[4px] -bottom-[90rem] right-[1rem]"
+              data-mod-y="-70" data-mod-x="10"></div>
+
+
+          </div>
+
+      </div>
+
+      </section>
+      <div class="contenedor">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente minus temporibus ab quasi, aspernatur culpa
+          velit incidunt quam debitis a cumque doloribus hic quia cupiditate est unde exercitationem reprehenderit
+          perferendis.
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit praesentium incidunt earum recusandae sit
+          sed id eius molestiae quibusdam eaque optio fuga culpa repellat ad, ipsa, voluptatem minus quaerat iste?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia voluptatibus repellendus tempora accusamus
+          blanditiis explicabo quos voluptas minus neque atque architecto animi dignissimos veritatis, et, aspernatur
+          quae dolor consequatur veniam?
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi earum dolores accusamus consequuntur officiis
+          optio delectus inventore. Ea deserunt impedit ullam, dignissimos, explicabo modi aliquid sequi repudiandae
+          aperiam quod facere?
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente minus temporibus ab quasi, aspernatur culpa
+          velit incidunt quam debitis a cumque doloribus hic quia cupiditate est unde exercitationem reprehenderit
+          perferendis.
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit praesentium incidunt earum recusandae sit
+          sed id eius molestiae quibusdam eaque optio fuga culpa repellat ad, ipsa, voluptatem minus quaerat iste?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia voluptatibus repellendus tempora accusamus
+          blanditiis explicabo quos voluptas minus neque atque architecto animi dignissimos veritatis, et, aspernatur
+          quae dolor consequatur veniam?
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi earum dolores accusamus consequuntur officiis
+          optio delectus inventore. Ea deserunt impedit ullam, dignissimos, explicabo modi aliquid sequi repudiandae
+          aperiam quod facere?
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente minus temporibus ab quasi, aspernatur culpa
+          velit incidunt quam debitis a cumque doloribus hic quia cupiditate est unde exercitationem reprehenderit
+          perferendis.
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit praesentium incidunt earum recusandae sit
+          sed id eius molestiae quibusdam eaque optio fuga culpa repellat ad, ipsa, voluptatem minus quaerat iste?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia voluptatibus repellendus tempora accusamus
+          blanditiis explicabo quos voluptas minus neque atque architecto animi dignissimos veritatis, et, aspernatur
+          quae dolor consequatur veniam?
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi earum dolores accusamus consequuntur officiis
+          optio delectus inventore. Ea deserunt impedit ullam, dignissimos, explicabo modi aliquid sequi repudiandae
+          aperiam quod facere?
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente minus temporibus ab quasi, aspernatur culpa
+          velit incidunt quam debitis a cumque doloribus hic quia cupiditate est unde exercitationem reprehenderit
+          perferendis.
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit praesentium incidunt earum recusandae sit
+          sed id eius molestiae quibusdam eaque optio fuga culpa repellat ad, ipsa, voluptatem minus quaerat iste?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia voluptatibus repellendus tempora accusamus
+          blanditiis explicabo quos voluptas minus neque atque architecto animi dignissimos veritatis, et, aspernatur
+          quae dolor consequatur veniam?
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi earum dolores accusamus consequuntur officiis
+          optio delectus inventore. Ea deserunt impedit ullam, dignissimos, explicabo modi aliquid sequi repudiandae
+          aperiam quod facere?
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente minus temporibus ab quasi, aspernatur culpa
+          velit incidunt quam debitis a cumque doloribus hic quia cupiditate est unde exercitationem reprehenderit
+          perferendis.
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit praesentium incidunt earum recusandae sit
+          sed id eius molestiae quibusdam eaque optio fuga culpa repellat ad, ipsa, voluptatem minus quaerat iste?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia voluptatibus repellendus tempora accusamus
+          blanditiis explicabo quos voluptas minus neque atque architecto animi dignissimos veritatis, et, aspernatur
+          quae dolor consequatur veniam?
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi earum dolores accusamus consequuntur officiis
+          optio delectus inventore. Ea deserunt impedit ullam, dignissimos, explicabo modi aliquid sequi repudiandae
+          aperiam quod facere?
+        </p>
+      </div>
+
+
+
+      <div class="flex flex-col pt-20 z-50">
+
+
+
+        <div class="w-1/2 flex pt-20">
+          <button class="boton1s" @click="theme(1)">TEMA 1</button>
+          <button class="boton1s" @click="theme(2)">TEMA 2</button>
+          <button class="boton1s" @click="theme(3)">TEMA 3</button>
+          <button class="boton1s" @click="theme(4)">TEMA 4</button>
+          <button class="boton1s" @click="theme(5)">TEMA 5</button>
+          <button class="boton1s" @click="theme(6)">TEMA 6</button>
+        </div>
+
+
+        <!-- BOTONES!!!! -->
+        <div class="flex pt-20">
+          <button class="boton1 w-24 h-14">BOTON A</button>
+          <button class="boton2 w-28 h-14">BOTON B</button>
+          <button class="boton3 w-24 h-14">BOTON C</button>
+          <button class="boton4 w-28 h-14">BOTON D</button>
+          <button class="boton5 w-24 h-14">BOTON E</button>
+        </div>
+
+        <div class="flex pt-20">
+          <button class="boton1s w-24 h-14">BOTON As</button>
+          <button class="boton2s w-28 h-14">BOTON Bs</button>
+          <button class="boton3s w-24 h-14">BOTON Cs</button>
+          <button class="boton4s w-28 h-14">BOTON Ds</button>
+          <button class="boton5s w-24 h-14">BOTON Es</button>
+          <button class="tclaro">light</button>
+          <button class="toscuro">dark</button>
+          <div class="w-1/4">
+            <a href="javascript:void(0);" @click="activeModal=true" class="peer">
+              <div class="botonredondo">
+                +</div>
+            </a>
+            <div class="font-bahnschrift text-skin-base text-xs mt-2 peer-hover:text-skin-muted">MODAL 1</div>
+          </div>
+
+
+
+          <button class="boton5s w-24 h-14" @click="modalSimple=true, sacarModalSimple()">MODAL SIMPLE</button>
+        </div>
+
+        <div class="element">q</div>
+
+
+      </div>
+
+      <div class="text-skin-base p-8">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique cum accusantium architecto nostrum itaque
+          cupiditate fugiat unde blanditiis asperiores fugit quo dolore atque maiores accusamus consequatur, corrupti
+          placeat dolores quaerat rerum illum veniam reiciendis mollitia voluptatibus dicta? Repellat mollitia
+          voluptatem doloremque eaque odit qui ut expedita totam ipsam corrupti sed praesentium iste commodi hic vero
+          maxime omnis nam non, consectetur porro unde nihil dolore dolor! Quod porro quidem voluptatibus beatae
+          blanditiis nisi iste magni suscipit nemo natus exercitationem iure saepe id nulla, consequuntur fugit nesciunt
+          impedit. Beatae dolor ut in quia dicta facere eius? Nemo cumque, perferendis modi, corporis expedita ea rerum
+          at inventore perspiciatis deserunt provident facere ipsam vero fugiat illo nisi nesciunt accusantium harum
+          consequuntur omnis eos, obcaecati suscipit distinctio! Deserunt maiores rem reprehenderit. Deserunt nam
+          tenetur quisquam explicabo corporis accusamus! Aut quibusdam a et aspernatur quisquam quaerat! Porro, id. Est
+          odio fugiat assumenda alias. Accusantium dolore, eum cumque sit architecto voluptatem eos dicta omnis
+          voluptate ipsam nemo mollitia quod. Deleniti molestiae quaerat, alias nobis est necessitatibus, voluptas qui
+          placeat doloremque cupiditate numquam vel itaque commodi tempore quae iure dolore quia eos voluptatibus
+          exercitationem. Odio excepturi beatae, possimus incidunt quisquam minima porro nisi, nulla laborum explicabo
+          quidem similique laudantium obcaecati velit et quibusdam saepe fugit, omnis consectetur at repudiandae? Hic
+          nihil delectus illum dolores necessitatibus natus eveniet voluptatem tempore sed. Exercitationem distinctio
+          voluptas beatae quod maxime ipsam aperiam. Ab, laudantium fugiat. Neque voluptate molestias esse saepe? Iste
+          perspiciatis, iure iusto pariatur, quo possimus sapiente consectetur veniam ex reprehenderit molestiae aperiam
+          quas modi voluptates quisquam nesciunt nihil dicta voluptatum, magni accusantium voluptate! Veniam, itaque
+          corrupti odit repellat eaque asperiores excepturi suscipit quia eveniet assumenda! Laudantium tempora ullam
+          numquam molestiae natus molestias! Repellendus rerum, perspiciatis vero tenetur possimus expedita debitis.
+          Saepe eveniet reiciendis vero aperiam. Unde quam similique velit quas!</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique cum accusantium architecto nostrum itaque
+          cupiditate fugiat unde blanditiis asperiores fugit quo dolore atque maiores accusamus consequatur, corrupti
+          placeat dolores quaerat rerum illum veniam reiciendis mollitia voluptatibus dicta? Repellat mollitia
+          voluptatem doloremque eaque odit qui ut expedita totam ipsam corrupti sed praesentium iste commodi hic vero
+          maxime omnis nam non, consectetur porro unde nihil dolore dolor! Quod porro quidem voluptatibus beatae
+          blanditiis nisi iste magni suscipit nemo natus exercitationem iure saepe id nulla, consequuntur fugit nesciunt
+          impedit. Beatae dolor ut in quia dicta facere eius? Nemo cumque, perferendis modi, corporis expedita ea rerum
+          at inventore perspiciatis deserunt provident facere ipsam vero fugiat illo nisi nesciunt accusantium harum
+          consequuntur omnis eos, obcaecati suscipit distinctio! Deserunt maiores rem reprehenderit. Deserunt nam
+          tenetur quisquam explicabo corporis accusamus! Aut quibusdam a et aspernatur quisquam quaerat! Porro, id. Est
+          odio fugiat assumenda alias. Accusantium dolore, eum cumque sit architecto voluptatem eos dicta omnis
+          voluptate ipsam nemo mollitia quod. Deleniti molestiae quaerat, alias nobis est necessitatibus, voluptas qui
+          placeat doloremque cupiditate numquam vel itaque commodi tempore quae iure dolore quia eos voluptatibus
+          exercitationem. Odio excepturi beatae, possimus incidunt quisquam minima porro nisi, nulla laborum explicabo
+          quidem similique laudantium obcaecati velit et quibusdam saepe fugit, omnis consectetur at repudiandae? Hic
+          nihil delectus illum dolores necessitatibus natus eveniet voluptatem tempore sed. Exercitationem distinctio
+          voluptas beatae quod maxime ipsam aperiam. Ab, laudantium fugiat. Neque voluptate molestias esse saepe? Iste
+          perspiciatis, iure iusto pariatur, quo possimus sapiente consectetur veniam ex reprehenderit molestiae aperiam
+          quas modi voluptates quisquam nesciunt nihil dicta voluptatum, magni accusantium voluptate! Veniam, itaque
+          corrupti odit repellat eaque asperiores excepturi suscipit quia eveniet assumenda! Laudantium tempora ullam
+          numquam molestiae natus molestias! Repellendus rerum, perspiciatis vero tenetur possimus expedita debitis.
+          Saepe eveniet reiciendis vero aperiam. Unde quam similique velit quas!</p>
+      </div>
+
+      <footer class="font-quicksand">
+        <div
+          class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+          <div
+            class="w-64 flex-shrink-0 md:mx-0 mx-auto md:text-left md:mt-0 mt-10 flex items-center md:justify-start justify-center place-items-center content-center">
+            <img :src=" tema=='tema_4' ? './web/assets/logo02L.png' : './web/assets/logo01L.png'"
+              class="w-[60%] h-[60%] aparecer transition-all ease-in-out duration-300" alt="logo">
+          </div>
+          <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-skin-accent tracking-widest text-sm mb-3 ">CATEGORIES</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100">First Link</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Second Link</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Third Link</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Fourth Link</a>
+                </li>
+              </nav>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-skin-accent tracking-widest text-sm mb-3 ">CATEGORIES</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100">First Link</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Second Link</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Third Link</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Fourth Link</a>
+                </li>
+              </nav>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-skin-accent tracking-widest text-sm mb-3 ">CATEGORIES</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100">First Link</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Second Link</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Third Link</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Fourth Link</a>
+                </li>
+              </nav>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-skin-accent tracking-widest text-sm mb-3 ">CATEGORIES</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100">First Link</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Second Link</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Third Link</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Fourth Link</a>
+                </li>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="bg-skin-muted bg-opacity-20">
+          <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+            <p class="text-gray-500 text-sm text-center sm:text-left">© 2022 MindHub —
+              <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-600 ml-1"
+                target="_blank">@knyttneve</a>
+            </p>
+            <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+              <a class="text-gray-500">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+                  viewBox="0 0 24 24">
+                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-500">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+                  viewBox="0 0 24 24">
+                  <path
+                    d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+                  </path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-500">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  class="w-5 h-5" viewBox="0 0 24 24">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-500">
+                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path stroke="none"
+                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                  <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                </svg>
+              </a>
+            </span>
+          </div>
+        </div>
+
+        <!-- MODAL DE INFORMATIVO -->
+        <div v-if="activeModal"
+          class="aparecer fixed top-0 left-0 flex justify-center bg-opacity-80 aparecer z-30 w-full h-full glass2">
+        </div>
+        <div v-if="activeModal"
+          class="aparecer fixed top-0 left-0 flex justify-center justify-items-center content-center w-full z-40">
+          <div
+            class="flex flex-col justify-center items-center mt-10 bg-skin-normal text-skin-base filter-none w-96 h-96 rounded-2xl shadow-sm border border-slate-300 bg-opacity-50 hover:bg-opacity-70 transition-all ease-in duration-300">
+            <div class="text-5xl font-bahnschrift opacity-80 inline">0hola</div>
+            <p class="inline ml-4 mb-4 font-notosans font-bold text-sm">Type <b class="text-skin-muted text-lg">QUE
+                tal</b></p>
+            <div class="bg-skin-button-accent h-0.5 lg:w-1/2 w-full mt-2 mb-6 bg-opacity-70"></div>
+            <!-- LÍNEA -->
+            <div class="mb-2">
+
+              <div>
+                <p class="font-notosans font-bold text-xs opacity-60 inline ">REQUESTED AMOUNT</p>
+                <p class="mb-2 font-bold text-lg opacity-90 inline">lalalala</b>
+              </div>
+
+              <div>
+                <p class="font-notosans font-semibold text-xs opacity-60 inline">AMOUNT TO PAY $</p>
+                <p class="mb-2 font-bold text-lg opacity-90 inline">lalalalala</p>
+              </div>
+
+              <div>
+                <p class="font-notosans font-semibold text-xs opacity-60 inline">NUMBER OF PAYMENTS </p>
+                <p class="mb-2 font-bold text-lg opacity-90 inline">lalalala</p>
+              </div>
+
+              <div>
+                <p class="mb-1 font-notosans font-semibold text-xs opacity-60 inline">AMOUNT OF EACH PAYMENT
+                  $</p>
+                <p class="font-bold text-lg opacity-90 inline">
+                  lalalalala</p>
+              </div>
+
+            </div>
+
+            <button class="boton3" @click="activeModal=false">RETURN</button>
+          </div>
+        </div>
+
+
+        <!-- MODAL MENSAJE SENCILLO, SIN BOTONES -->
+        <div v-if="modalSimple"
+          class="aparecer fixed top-0 left-0 flex justify-center bg-opacity-80 aparecer z-30 w-full h-full glass2">
+        </div>
+        <div v-if="modalSimple"
+          class="aparecer fixed top-0 left-0 flex justify-center justify-items-center content-center w-full z-40">
+          <div
+            class="flex flex-col justify-center items-center mt-10 bg-skin-normal filter-none w-96 h-36 rounded-2xl shadow-sm border border-slate-300">
+            <p class="text-skin-base text-center p-2 m-1 font-bold"><b>New card created successfully!</b></p>
+          </div>
+        </div>
+
+
+
+      </footer>
+
+    </div>
+
+
+
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="/node_modules/basicscroll/dist/basicScroll.min.js"></script>
+  <script src="./recursos.js"></script>
+
+
+</body>
+
+</html>

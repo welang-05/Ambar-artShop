@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/web/styles/tailwind.css">
+    <link rel="shortcut icon" href="/web/assets/logo01.png" type="image/x-icon">
+    <title>Artist den</title>
+</head>
+
+<body>
+
+    <div id="app" v-cloak>
+        <div :class="tema=='tema_1' ? '' : tema=='tema_2' ? 'theme2' : tema=='tema_3' ? 'theme3' : tema=='tema_4' ? 'theme4' : tema=='tema_5' ? 'theme5' : tema=='tema_6' ? 'theme6' : ''"
+            class="w-full min-h-screen flex flex-col aparecer2 bg-skin-normal">
+
+
+            <!-- HEADER CON NAV -->
+            <header>
+
+                <div ref="navbar" class="flex justify-between w-screen p-2 fixed z-0 place-items-center">
+
+                    <img :src=" tema=='tema_4' || tema=='tema_5' || tema=='tema_6' ? '/web/assets/logo02.png' : '/web/assets/logo01.png'" class="w-[3.5%] h-[3.5%] ml-4 aparecer transition-all ease-in-out duration-300" alt="logo">
+                    <nav class="flex font-bahnschrift">
+                        <div class="flex items-center">
+                            <a class="mr-6 ml-6 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100" href="/index.html">Home</a>
+                            <div class="font-xs opacity-30 text-skin-base">|</div> 
+                            <a class="mr-6 ml-6 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100" href="/web/public/wallofartworks.html">Store</a>
+                            <div class="font-xs opacity-30 text-skin-base">|</div> 
+                            <a class="mr-6 ml-6 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100" href="/web/public/wallofartist.html">Artists</a>
+                            <div class="font-xs opacity-30 text-skin-base">|</div> 
+                            <a class="mr-6 ml-6 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100" href="/web/public/shoppingcart.html">Shop cart</a>
+                        </div>
+                        <div v-show="user == 'visitor'" class="flex items-center mr-6 ml-6">
+                          <a class="mr-4 ml-6 px-5 py-3 text-opacity-80 text-skin-inverted hover:text-skin-base  sus" href="javascript:void(0);">Log in</a>
+                          <div class="font-xs opacity-30 text-skin-base">|</div> 
+                          <a class="mr-6 ml-3 text-skin-base text-opacity-100" href="javascript:void(0);">Sign in</a>
+                      </div>
+                      <div v-show= "user == 'authenticated'" class="relative">
+                        <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-5.jpg" alt="">
+                        <span class="top-0 left-7 absolute  w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
+                    </div>
+
+                        <div class="w-1/2">
+                            <button class="boton1s" @click="theme(1)">TEMA 1</button>
+                            <button class="boton1s" @click="theme(2)">TEMA 2</button>
+                            <button class="boton1s" @click="theme(3)">TEMA 3</button>
+                            <button class="boton1s" @click="theme(4)">TEMA 4</button>
+                            <button class="boton1s" @click="theme(5)">TEMA 5</button>
+                            <button class="boton1s" @click="theme(6)">TEMA 6</button>
+            
+                        </div>
+                    </nav>
+
+                </div>
+
+            </header>
+
+
+            <!-- CUERPO -->
+            <main class="bg-skin-muted mt-24">
+                <section>
+                  <div class="bg-skin-normal">
+                    <div
+                      class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8"
+                    >
+      
+                    <h1 class="flex justify-center text-5xl">Summary</h1>
+                    
+                      <div class="items-center flex flex-wrap">
+                        <div class="w-full md:w-4/12 ml-auto mr-auto px-4">
+                          <img alt="..."src="../assets/img1.png">
+                        </div>
+                        <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
+                          <div class="md:pr-12">
+                            <div class="text-skin-accent p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-skin-accent mt-8">
+                              <i class="fas fa-rocket text-xl"></i>
+                            </div>
+                            <h3 class="text-3xl text-skin-muted">$ 200.0</h3>
+                            <p class="mt-4 text-lg leading-relaxed text-skin-muted">
+                              DESCRIPCION DE LA OBRA: sit amet consectetur adipisicing elit. Ullam neque, tempora tenetur velit dolor explicabo modi culpa, nulla quis facere veritatis praesentium voluptatibus incidunt itaque reprehenderit quaerat voluptatum quas minus.
+                            </p>
+                            <ul class="list-none mt-6">
+                              <li class="py-2">
+                                <div class="flex items-center">
+                                  <div>
+                                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-skin-accent mr-3"><i class="fas fa-fingerprint"></i></span>
+                                  </div>
+                                  <div>
+                                    <h4 class="text-skin-accent">
+                                      Obra: lorem / Artista : lorem
+                                    </h4>
+                                  </div>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
+                          <div class="md:pr-12">
+                            <div class="text-skin-accent p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-skin-accent mt-8">
+                              <i class="fas fa-rocket text-xl"></i>
+                            </div>
+                            <h3 class="text-3xl text-skin-muted">$ 200.0</h3>
+                            <p class="mt-4 text-lg leading-relaxed text-skin-muted">
+                              DESCRIPCION DE LA OBRA: sit amet consectetur adipisicing elit. Ullam neque, tempora tenetur velit dolor explicabo modi culpa, nulla quis facere veritatis praesentium voluptatibus incidunt itaque reprehenderit quaerat voluptatum quas minus.
+                            </p>
+                            <ul class="list-none mt-6">
+                              <li class="py-2">
+                                <div class="flex items-center">
+                                  <div>
+                                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-skin-accent mr-3"><i class="fas fa-fingerprint"></i></span>
+                                  </div>
+                                  <div>
+                                    <h4 class="text-skin-accent">
+                                      Obra: lorem / Artista : lorem
+                                    </h4>
+                                  </div>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
+                          <div class="md:pr-12">
+                            <div class="text-skin-accent p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-skin-accent mt-8">
+                              <i class="fas fa-rocket text-xl"></i>
+                            </div>
+                            <h3 class="text-3xl text-skin-muted">$ 200.0</h3>
+                            <p class="mt-4 text-lg leading-relaxed text-skin-muted">
+                              DESCRIPCION DE LA OBRA: sit amet consectetur adipisicing elit. Ullam neque, tempora tenetur velit dolor explicabo modi culpa, nulla quis facere veritatis praesentium voluptatibus incidunt itaque reprehenderit quaerat voluptatum quas minus.
+                            </p>
+                            <ul class="list-none mt-6">
+                              <li class="py-2">
+                                <div class="flex items-center">
+                                  <div>
+                                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-skin-accent mr-3"><i class="fas fa-fingerprint"></i></span>
+                                  </div>
+                                  <div>
+                                    <h4 class="text-skin-accent">
+                                      Obra: lorem / Artista : lorem
+                                    </h4>
+                                  </div>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </main>
+           
+
+            <div class="place-self-center bg-skin-muted h-[1.2px] lg:w-1/2 w-full mt-9 bg-opacity-20"></div><!-- LÍNEA -->
+
+            <!-- FOOTER -->
+            <footer class="font-quicksand">
+
+                    
+                <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+                  <div class="w-64 flex-shrink-0 md:mx-0 mx-auto md:text-left md:mt-0 mt-10 flex items-center md:justify-start justify-center place-items-center content-center">
+                    <img :src=" tema=='tema_4' || tema=='tema_5' || tema=='tema_6' ? '/web/assets/logo02L.png' : '/web/assets/logo01L.png'" class="w-[60%] h-[60%] aparecer transition-all ease-in-out duration-1000" alt="logo">
+                  </div>
+                  <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
+                    <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                      <h2 class="title-font font-medium text-skin-accent tracking-widest text-sm mb-3 ">CATEGORIES</h2>
+                      <nav class="list-none mb-10">
+                        <li>
+                          <a class="text-skin-base text-opacity-60 hover:text-opacity-100">First Link</a>
+                        </li>
+                        <li>
+                          <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Second Link</a>
+                        </li>
+                        <li>
+                          <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Third Link</a>
+                        </li>
+                        <li>
+                          <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Fourth Link</a>
+                        </li>
+                      </nav>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                        <h2 class="title-font font-medium text-skin-accent tracking-widest text-sm mb-3 ">CATEGORIES</h2>
+                        <nav class="list-none mb-10">
+                          <li>
+                            <a class="text-skin-base text-opacity-60 hover:text-opacity-100">First Link</a>
+                          </li>
+                          <li>
+                            <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Second Link</a>
+                          </li>
+                          <li>
+                            <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Third Link</a>
+                          </li>
+                          <li>
+                            <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Fourth Link</a>
+                          </li>
+                        </nav>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                        <h2 class="title-font font-medium text-skin-accent tracking-widest text-sm mb-3 ">CATEGORIES</h2>
+                        <nav class="list-none mb-10">
+                          <li>
+                            <a class="text-skin-base text-opacity-60 hover:text-opacity-100">First Link</a>
+                          </li>
+                          <li>
+                            <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Second Link</a>
+                          </li>
+                          <li>
+                            <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Third Link</a>
+                          </li>
+                          <li>
+                            <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Fourth Link</a>
+                          </li>
+                        </nav>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                        <h2 class="title-font font-medium text-skin-accent tracking-widest text-sm mb-3 ">CATEGORIES</h2>
+                        <nav class="list-none mb-10">
+                          <li>
+                            <a class="text-skin-base text-opacity-60 hover:text-opacity-100">First Link</a>
+                          </li>
+                          <li>
+                            <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Second Link</a>
+                          </li>
+                          <li>
+                            <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Third Link</a>
+                          </li>
+                          <li>
+                            <a class="text-skin-base text-opacity-60 hover:text-opacity-100">Fourth Link</a>
+                          </li>
+                        </nav>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-skin-muted bg-opacity-20">
+                  <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+                    <p class="text-gray-500 text-sm text-center sm:text-left">© 2022 MindHub —
+                      <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@knyttneve</a>
+                    </p>
+                    <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+                      <a class="text-gray-500">
+                        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                        </svg>
+                      </a>
+                      <a class="ml-3 text-gray-500">
+                        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                          <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                        </svg>
+                      </a>
+                      <a class="ml-3 text-gray-500">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                          <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                          <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                        </svg>
+                      </a>
+                      <a class="ml-3 text-gray-500">
+                        <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                          <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                          <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                        </svg>
+                      </a>
+                    </span>
+                  </div>
+                </div>
+              </footer>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="/web/scripts/myshoppinghistory.js"></script>
+</body>
+</html>

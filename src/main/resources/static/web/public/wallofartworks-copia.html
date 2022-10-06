@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/web/styles/tailwind.css">
+  <link rel="shortcut icon" href="/web/assets/logo01.png" type="image/x-icon">
+  <title>Products | AMBAR</title>
+</head>
+
+<body>
+
+  <div id="app" v-cloak>
+    <div
+      :class="tema=='tema_1' ? '' : tema=='tema_2' ? 'theme2' : tema=='tema_3' ? 'theme3' : tema=='tema_4' ? 'theme4' : tema=='tema_5' ? 'theme5' : tema=='tema_6' ? 'theme6' : ''"
+      class="w-full min-h-screen flex flex-col aparecer2 bg-skin-normal">
+
+
+      <!-- HEADER CON NAV -->
+      <header class="flex flex-col">
+
+        <div ref="navbar" class="hidden glass1 md:flex  z-40 justify-between w-screen p-2 fixed place-items-center">
+
+          <img
+            :src=" tema=='tema_4' || tema=='tema_5' || tema=='tema_6' ? '/web/assets/logo02.png' : '/web/assets/logo01.png'"
+            class="w-[3.5%] h-[3.5%] ml-4 p-1 m-1 aparecer transition-all ease-in-out duration-300"
+            :class="tema=='tema_4' || tema=='tema_5' || tema=='tema_6' ? 'filtro2' : 'filtro1'" alt="logo">
+          <nav class="flex font-bahnschrift">
+            <div class="flex items-center">
+
+
+              <div class="w-1/2">
+                <button class="boton1s" @click="theme(1)">TEMA 1</button>
+                <button class="boton1s" @click="theme(2)">TEMA 2</button>
+                <button class="boton1s" @click="theme(3)">TEMA 3</button>
+                <button class="boton1s" @click="theme(4)">TEMA 4</button>
+                <button class="boton1s" @click="theme(5)">TEMA 5</button>
+                <button class="boton1s" @click="theme(6)">TEMA 6</button>
+              </div>
+
+
+              <a class="mr-6 ml-6 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100"
+                href="/index.html">Home</a>
+              <div class="font-xs opacity-30 text-skin-base">|</div>
+              <a class="mr-6 ml-6 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100"
+                href="/web/public/wallofartworks.html">Store</a>
+              <div class="font-xs opacity-30 text-skin-base">|</div>
+              <a class="mr-6 ml-6 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100"
+                href="/web/public/wallofartist.html">Artists</a>
+              <div class="font-xs opacity-30 text-skin-base">|</div>
+              <a class="mr-6 ml-6 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100"
+                href="/web/public/shoppingcart.html">Cart</a>
+            </div>
+            <div v-show="user == 'visitor'" class="flex items-center mr-6 ml-6">
+              <a class="mr-4 ml-6 px-5 py-3 text-opacity-80 text-skin-inverted hover:text-skin-base  sus"
+                href="javascript:void(0);">Log in</a>
+              <div class="font-xs opacity-30 text-skin-base">|</div>
+              <a class="mr-6 ml-3 text-skin-base text-opacity-100" href="javascript:void(0);">Sign in</a>
+            </div>
+            <div v-show="user == 'authenticated'" class="relative">
+              <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-5.jpg" alt="">
+              <span
+                class="top-0 left-7 absolute  w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
+            </div>
+          </nav>
+
+        </div>
+
+        <!-- NAV-BAR MOBILE -->
+        <div class="self-start ml-16 mt-6 pb-3 fixed z-[41]">
+          <button id="dropdownRightButton" data-dropdown-toggle="dropdownRight" data-dropdown-placement="right"
+            class="boton5s" type="button"><img src="/web/assets/icons/theme.svg" alt="temas" class="w-5 h-5 "
+              :class="tema=='tema_1' ? 'filter1a' : tema=='tema_2' ? 'filter2b' : tema=='tema_3' ? 'filter3b' : tema=='tema_4' ? 'filter4b' : tema=='tema_5' ? 'filter5b' : 'filter1b'"></button>
+
+          <div id="dropdownRight" class="hidden z-10 w-4 fixed pt-[78px] aparecer" data-popper-reference-hidden=""
+            data-popper-escaped="" data-popper-placement="bottom"
+            style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform:z translate(0px, 810px);">
+            <ul class="flex py-1 text-sm text-gray-700 dark:text-gray-200 c-flex" aria-labelledby="dropdownDefault">
+              <li>
+                <button class="w-6 h-6 c-flex tclaro" @click="theme(1)"><img src="/web/assets/icons/pincel1.svg"
+                    class="w-4 h-4 filter1a" alt="theme1"></button>
+              </li>
+              <li>
+                <button class="w-6 h-6 c-flex tclaro" @click="theme(2)"><img src="/web/assets/icons/pincel1.svg"
+                    class="w-4 h-4 filter2a" alt="theme2"></button>
+              </li>
+              <li>
+                <button class="w-6 h-6 c-flex tclaro" @click="theme(3)"><img src="/web/assets/icons/pincel1.svg"
+                    class="w-4 h-4 filter3a" alt="theme3"></button>
+              </li>
+              <li>
+                <button class="w-6 h-6 c-flex toscuro" @click="theme(4)"><img src="/web/assets/icons/pincel1.svg"
+                    class="w-4 h-4 filter4b" alt="theme4"></button>
+              </li>
+              <li>
+                <button class="w-6 h-6 c-flex toscuro" @click="theme(5)"><img src="/web/assets/icons/pincel1.svg"
+                    class="w-4 h-4 filter5b" alt="theme5"></button>
+              </li>
+              <li>
+                <button class="w-6 h-6 c-flex toscuro" @click="theme(6)"><img src="/web/assets/icons/pincel1.svg"
+                    class="w-4 h-4 filter6b" alt="theme6"></button>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+
+      </header>
+
+      <!-- MODALES -->
+      <!-- MODAL DE OBRA -->
+      <div v-if="activeModal"
+        class="aparecer fixed top-0 left-0 flex justify-center bg-opacity-80 aparecer z-[42] w-full h-full glass2">
+      </div>
+      <div v-if="activeModal"
+        class="aparecer fixed top-0 left-0 flex justify-center justify-items-center content-center w-full h-full z-50">
+        <!-- DETALLES OBRA -->
+        <div href="#"
+          class="m-5 block overflow-hidden rounded-t-2xl rounded-b-3xl md:flex md:w-4/5 md:h-2/3 aspect-card2 shadow-[0px_8px_24px_rgba(var(--color-text-base),.05)]">
+          <div class="overflow-hidden c-flex aspect-card1 w-full  border-y-4 border-skin-muted bg-skin-cuasi-normal bg-opacity-70 border-opacity-100">
+
+            <img alt="venus" src="https://www.purina-latam.com/sites/g/files/auxxlc391/files/styles/social_share_large/public/Purina%C2%AE%20Como%20disciplinar%20a%20tu%20gato.jpg"
+              class="saturate-[.9] hover:saturate-100 transition-all ease-in duration-300" />
+
+          </div>
+
+          <div
+            class="flex flex-col md:justify-around  p-5 md:p-8 bg-skin-inverted bg-opacity-[.85] w-full h-96 md:h-full transition-all ease-in-out duration-1000">
+            <h5 class="text-center text-lg font-bahnschrift text-skin-inverted-accent">
+              EL NACIMIENTO DE VENUS
+            </h5>
+
+            <p
+              class="text-center text-sm font-quicksand   text-skin-inverted text-opacity-70 py-3">
+              Pintura - 36cm x 87cm</p>
+
+            <p class="text-justify py-3 font-quicksand text-skin-inverted text-opacity-90">
+              Descripción, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum nobis
+              aliquid accusamus? Sint, sequi voluptas.
+            </p>
+
+            <p class="ml-2 text-center font-bold font-quicksand text-skin-inverted ">
+              PRICE: $50,000 </p>
+
+            <!-- SEPARADOR -->
+            <img class="antialiased place-sel-center scale-[0.4] mt-2  transition-all ease-in-out duration-1000 filtro2 opacity-90"
+              src="/web/assets/sep1.png" alt="">
+
+            <a class="mt-3 c-flex flex-col hover:filtro1 transition-all ease-in-out duration-500" href="#">
+              <p class=" font-bahnschrift text-xs text-skin-inverted-accent">SEBASTIAN
+                PATIÑO</p>
+              <img src="/web/assets/icons/pincel1.svg" alt="" class="w-4 h-4 mx-4 filtro2">
+            </a>
+
+            <div class="flex justify-around items-center pt-4">
+
+              <button
+                class="w-24 h-12 text-skin-base bg-red-600 bg-opacity-70 p-3 font-bahnschrift text-sm hover:shadow-[1px_1px_5px_rgba(220,38,38,0.8)] rounded-tl-2xl rounded-b-2xl hover:rounded-t-3xl hover:rounded-br-3xl hover:rounded-bl-none ease-in duration-300 hover:bg-opacity-100"
+                @click="activeModal=false">return</button>
+
+              <div class="flex">
+                <button
+                  class="w-24 h-12 text-skin-base font-bold bg-skin-normal p-3 font-bahnschrift shadow-[0px_0px_1px_rgba(var(--color-text-base),0.4)] hover:shadow-[1px_1px_5px_rgba(var(--color-normal),0.8)] rounded-b-2xl rounded-tr-2xl hover:rounded-l-3xl hover:rounded-tr-3xl hover:rounded-br-none  ease-in duration-300 hover:filtro2">buy</button>
+
+                <!-- <div class="flex items-center pr-1">
+                <button
+                  class="text-skin-base bg-skin-normal font-bold p-2 font-bahnschrift text-xs shadow-[0px_0px_1px_rgba(var(--color-text-base),0.4)] hover:shadow-[1px_1px_5px_rgba(var(--color-normal),0.8)] rounded-l-md hover:rounded-l-2xl  ease-in duration-300 hover:filtro2">-</button>
+                <div class="text-skin-base px-1 group-hover:text-skin-inverted ">5</div>
+                <button
+                  class="text-skin-base bg-skin-normal font-bold p-2 font-bahnschrift text-xs shadow-[0px_0px_1px_rgba(var(--color-text-base),0.4)] hover:shadow-[1px_1px_5px_rgba(var(--color-normal),0.8)] rounded-r-md hover:rounded-r-2xl ease-in duration-300 hover:filtro2">+</button>
+              </div> -->
+
+
+
+              </div>
+              
+
+            </div>
+
+
+          </div>
+        </div>
+
+
+      </div>
+
+
+      <!-- BIENVENIDA A GALERÍA DE ARTE -->
+      <div
+        class="md:mt-36 mt-24 w-full flex flex-col items-center md:items-start  md:text-start min-h-[300px] backHeaderGallery transition-all ease-in-out duration-500">
+
+        <p
+          class="md:ml-12 text-skin-muted font-bahnschrift text-xl md:text-2xl font-light transition-all ease-in-out duration-1000">
+          WELCOME TO THE</p>
+        <p
+          class="antialiased text-skin-accent font-cinzel text-5xl md:text-[5.5rem] md:ml-16 lg:text-9xl transition-all ease-in-out duration-1000">
+          Art Gallery
+        </p>
+        <img class="md:hidden w-5/6"
+          :src="tema=='tema_1' || tema=='tema_4' ? '/web/assets/david03a.png' : tema=='tema_2' || tema=='tema_5' ? '/web/assets/david03b.png' : tema=='tema_3' || tema=='tema_6' ? '/web/assets/david03c.png' : '/web/assets/david03a.png' "
+          alt="">
+      </div>
+
+      <!-- SEPARADOR -->
+      <img class="place-sel-center scale-[0.4] mt-16 opacity-70 transition-all ease-in-out duration-1000 filtro1"
+        src="/web/assets/sep4.png" alt="">
+
+      <!-- CUERPO -->
+      <main class="mt-20">
+
+        <!-- BARRA DE BÚSQUEDA -->
+        <section class="flex flex-col c-flex ">
+
+          <div class="c-flex flex-col-reverse w-full md:w-full transition-all ease-linear duration-300">
+            <input
+              class="peer pl-3 py-1 font-bahnschrift bg-skin-muted bg-opacity-[0.15] focus:bg-opacity-10 w-4/5 md:w-1/3 md:focus:w-1/2 text-skin-accent  border-2 border-skin-muted border-opacity-0 focus:border-opacity-30 rounded-sm focus focus:outline-none transition-all ease-linear duration-300"
+              type="search" id="search" name="search">
+            <label for="search"
+              class="font-bahnschrift text-skin-muted text-opacity-80 peer-focus:text-opacity-100 pb-3">Search</label>
+          </div>
+
+          <div class="flex mt-3 mb-6">
+            <span class="font-bahnschrift text-skin-base text-opacity-90">Filter by:</span><span class="ml-4">X X X X
+              X</span>
+          </div>
+
+          <div class="place-self-center bg-skin-accent h-[1.5px] w-full mt-9 bg-opacity-20"></div><!-- LÍNEA -->
+        </section>
+
+        <!-- OBRAS DE ARTE -->
+        <section class="flex p-8 flex-wrap justify-around">
+
+
+          <!-- CARD OBRA DE ARTE -->
+          <div v-for="algo in prueba" href="#"
+            class="group m-5 block overflow-hidden rounded-t-2xl rounded-b-3xl md:w-[300px] aspect-card2 shadow-[0px_8px_24px_rgba(var(--color-text-base),.05)]">
+            <div
+              class="overflow-hidden aspect-card1 w-full border-b-[6px]  border-skin-muted border-opacity-60 group-hover:border-opacity-100">
+
+              <img alt="venus" src="https://i.pinimg.com/originals/bb/1d/57/bb1d571d7d778dae41451727fbfa808f.jpg"
+                class="saturate-[.9] hover:saturate-100 group-hover:scale-125 transition-all ease-in duration-300" />
+
+            </div>
+
+            <div
+              class="flex flex-col p-5 bg-skin-normal group-hover:bg-skin-inverted w-full h-96 transition-all ease-in-out duration-1000">
+              <h5 class="text-center text-lg font-bahnschrift text-skin-accent group-hover:text-skin-inverted-accent">
+                EL NACIMIENTO DE VENUS
+              </h5>
+
+              <!--          <p
+                class="text-center text-xs font-quicksand text-skin-base text-opacity-60 group-hover:text-skin-inverted   group-hover:text-opacity-70">
+                Pintura - 36cm x 87cm</p> -->
+
+              <p
+                class="text-justify mt-3 text-xs font-quicksand text-skin-base group-hover:text-skin-inverted text-opacity-90">
+                Descripción, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum nobis
+                aliquid accusamus? Sint, sequi voluptas.
+              </p>
+
+              <!-- SEPARADOR -->
+              <img
+                class="place-sel-center scale-[0.8] mt-4 opacity-40 transition-all ease-in-out duration-1000 filtro2 group-hover:opacity-90"
+                src="/web/assets/sep11.png" alt="">
+
+              <a class="mt-3 c-flex flex-col hover:filtro1 transition-all ease-in-out duration-500" href="#">
+                <p class="text-skin-base font-bahnschrift text-xs group-hover:text-skin-inverted-accent">SEBASTIAN
+                  PATIÑO</p>
+                <img src="/web/assets/icons/pincel1.svg" alt="" class="w-4 h-4 mx-4 filtro2">
+              </a>
+
+              <div class="flex justify-between items-center pt-4">
+
+                <p
+                  class="ml-2 text-skin-base font-bold text-xs font-quicksand text-opacity-70 group-hover:text-skin-inverted group-hover:text-opacity-100">
+                  PRICE: $50,000 </p>
+
+                <div class="flex">
+                  <button
+                    class="text-skin-base font-bold bg-skin-normal p-3 font-bahnschrift shadow-[0px_0px_1px_rgba(var(--color-text-base),0.4)] hover:shadow-[1px_1px_5px_rgba(var(--color-normal),0.8)] rounded-bl-xl hover:rounded-tl-2xl  hover:rounded-bl-none   ease-in duration-300 hover:filtro2">+</button>
+
+                  <!-- <div class="flex items-center pr-1">
+                    <button
+                      class="text-skin-base bg-skin-normal font-bold p-2 font-bahnschrift text-xs shadow-[0px_0px_1px_rgba(var(--color-text-base),0.4)] hover:shadow-[1px_1px_5px_rgba(var(--color-normal),0.8)] rounded-l-md hover:rounded-l-2xl  ease-in duration-300 hover:filtro2">-</button>
+                    <div class="text-skin-base px-1 group-hover:text-skin-inverted ">5</div>
+                    <button
+                      class="text-skin-base bg-skin-normal font-bold p-2 font-bahnschrift text-xs shadow-[0px_0px_1px_rgba(var(--color-text-base),0.4)] hover:shadow-[1px_1px_5px_rgba(var(--color-normal),0.8)] rounded-r-md hover:rounded-r-2xl ease-in duration-300 hover:filtro2">+</button>
+                  </div> -->
+
+                  <button
+                    class="text-skin-base bg-skin-normal p-2 font-bahnschrift text-xs shadow-[0px_0px_1px_rgba(var(--color-text-base),0.4)] hover:shadow-[1px_1px_5px_rgba(var(--color-normal),0.8)] rounded-br-xl hover:rounded-tr-xl  hover:rounded-br-none ease-in duration-300 hover:filtro2"
+                    @click="activeModal=true">DETAILS</button>
+
+        </div>
+
+
+
+              </div>
+
+
+            </div>
+          </div>
+
+
+        </section>
+
+        <section class="p-12 text-skin-base">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae quo laboriosam totam amet. Perferendis
+          voluptates aperiam autem veritatis! Unde ex quisquam asperiores quasi dignissimos, perspiciatis repudiandae?
+          Aut id expedita eveniet atque, non ullam corporis assumenda animi deserunt eius quibusdam excepturi iusto,
+          maxime ipsa dolores, amet suscipit modi consectetur esse laudantium labore rem quam. Voluptatem laboriosam, ea
+          dolor aliquam delectus fuga corporis numquam voluptatum quisquam facere cupiditate in quasi itaque. Corrupti
+          accusamus saepe et natus porro voluptatum sed doloremque sint excepturi dolorum provident aliquam voluptate
+          cumque officiis molestiae, numquam commodi dignissimos quaerat inventore at quasi ratione? Distinctio, ullam
+          quaerat minus vel saepe rem placeat porro recusandae itaque odio aliquam nemo rerum soluta est fugiat
+          voluptas. Aspernatur exercitationem quisquam asperiores eos ut laborum! Deleniti, impedit dicta tempore
+          aperiam at, ipsum placeat vero facere nisi ad cum cumque quaerat architecto consequatur, officiis unde. Ipsum
+          illo necessitatibus ea consequuntur expedita nostrum reprehenderit delectus perspiciatis! Commodi veritatis
+          corporis dolores nemo possimus voluptatibus nam magnam, molestias nostrum earum praesentium! Nihil modi magnam
+          maxime, minus praesentium sit itaque sunt quisquam suscipit deserunt molestias eaque accusantium ex,
+          perferendis aperiam et quasi cumque provident dolore? Nobis architecto cumque repellendus id excepturi fuga!
+          Sapiente officia rem laboriosam, est inventore voluptatem alias iusto ratione dolorum odit itaque deleniti.
+          Voluptatem, dolorem aspernatur architecto minima atque, molestias obcaecati reprehenderit, exercitationem odio
+          distinctio iste quae culpa consequatur consectetur magnam esse. Ea consequuntur facilis asperiores molestias
+          mollitia eveniet culpa, sint quia veritatis nulla dolor fugiat soluta obcaecati blanditiis sit repellat
+          expedita in error ab officiis veniam? Aspernatur porro repellat tenetur. Molestias, eius reiciendis atque
+          harum ipsam, dignissimos porro natus, ut nobis tenetur dolore velit? Molestiae commodi, numquam architecto
+          quidem, cumque est dolorum debitis ipsum nihil deserunt eum sint recusandae suscipit vitae labore fugiat ipsam
+          perspiciatis voluptates nemo rem pariatur asperiores ullam optio quaerat. Laboriosam, exercitationem!
+        </section>
+
+        <!-- PRODUCTOS -->
+        <section>
+
+          <!--                     <div class="">
+                        <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+                          <h2 class="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2>
+                      
+                          <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                            <div class="group relative">
+                              <div class="min-h-[10rem] aspect-card2 w-full overflow-hidden rounded-md group-hover:opacity-75 lg:h-16">
+                                <img src="https://ychef.files.bbci.co.uk/1600x900/p08kdd20.webp" alt="venus" class="h-full w-full object-cover object-center">
+                              </div>
+                              <div class="mt-4 flex justify-between">
+                                <div>
+                                  <h3 class="text-sm text-gray-700">
+                                    <a href="#">
+                                      <span aria-hidden="true" class="absolute inset-0"></span>
+                                      Basic Tee
+                                    </a>
+                                  </h3>
+                                  <p class="mt-1 text-sm text-gray-500">Black</p>
+                                </div>
+                                <p class="text-sm font-medium text-gray-900">$35</p>
+                              </div>
+                            </div>
+                      
+                            More products...
+                          </div>
+                        </div>
+                      </div> -->
+
+        </section>
+
+
+      </main>
+      <div class="w-1/2">
+        <button class="boton1s" @click="theme(1)">TEMA 1</button>
+        <button class="boton1s" @click="theme(2)">TEMA 2</button>
+        <button class="boton1s" @click="theme(3)">TEMA 3</button>
+        <button class="boton1s" @click="theme(4)">TEMA 4</button>
+        <button class="boton1s" @click="theme(5)">TEMA 5</button>
+        <button class="boton1s" @click="theme(6)">TEMA 6</button>
+
+      </div>
+      <!-- SEPARADOR -->
+      <img
+        class="place-sel-center scale-[0.4] mt-9 opacity-70 transition-all ease-in-out duration-1000 filtro1 hover:filtro2 -scale-y-[0.4]"
+        src="/web/assets/sep4.png" alt="">
+
+      <!-- FOOTER -->
+      <footer class="md:ml-40 font-quicksand">
+
+
+
+        <div
+          class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col overflow-hidden">
+          <div
+            class="w-64 flex-shrink-0 md:mx-0 mx-auto md:text-left md:mt-0 mt-10 flex items-center md:justify-start justify-center place-items-center content-center">
+            <img
+              :src=" tema=='tema_4' || tema=='tema_5' || tema=='tema_6' ? '/web/assets/logo02L.png' : '/web/assets/logo01L.png'"
+              class="w-[60%] h-[60%] aparecer transition-all ease-in-out duration-1000 hover:filtro1"
+              :class="tema=='tema_4' || tema=='tema_5' || tema=='tema_6' ? 'filtro2 hover:filtro1' : 'filtro1 hover:filtro2'"
+              alt="logo">
+          </div>
+
+
+          <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-skin-accent tracking-widest text-sm mb-3 ">ART GALLERIES AROUND THE WORLD</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100" href="https://morettigallery.com/">Galleria Moretti</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100" href="https://ariaartgallery.com/">Aria Art Gallery</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100" href="https://www.florenceartgallery.com/">Florence Art Gallery</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100" href="https://www.fornaciaiartgallery.com/">Fornaciai Art Gallery</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100" href="http://www.galleriafaustini.it/site/en/">Galleria D'Arte Faustini</a>
+                </li>
+              </nav>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-skin-accent tracking-widest text-sm mb-3 ">LIST OF NGOS</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100" href="https://ngobridges.com/ngo?categories[]=3">Riga German Culture Society</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100" href="https://ngobridges.com/ngo?categories[]=3">Linking Foundation</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100" href="https://ngobridges.com/ngo?categories[]=3">MTU Jazzon</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100" href="https://ngobridges.com/ngo?categories[]=3">Island Panorama Center</a>
+                </li>
+              </nav>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-skin-accent tracking-widest text-sm mb-3 ">LIST OF AWARDS</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100" href="https://en.wikipedia.org/wiki/Leonardo_da_Vinci_World_Award_of_Arts">Leonardo da Vinci World Award of Arts</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100" href="https://en.wikipedia.org/wiki/M%26C_Fine_Arts_Awards">M&C Fine Arts Awards</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100" href="https://en.wikipedia.org/wiki/Musgrave_Medal">Musgrave Medal</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100" href="https://en.wikipedia.org/wiki/PIPA_Prize">PIPA Prize </a>
+                </li>
+              </nav>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-skin-accent tracking-widest text-sm mb-3 ">ART SCHOLARSHIPS AROUND THE WORLD</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100" href="https://www.unsw.edu.au/arts-design-architecture/study-with-us/scholarships-and-prizes">Art and design Scholarships @ UNSW</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100" href="https://www.rmit.edu.au/students/careers-opportunities/scholarships">Art, fashion and textiles scholarships @ RMIT University </a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100" href="https://finearts-music.unimelb.edu.au/study-with-us/scholarships">Fine arts and music scholarships</a>
+                </li>
+                <li>
+                  <a class="text-skin-base text-opacity-60 hover:text-opacity-100" href="https://www.krylon.com/community/krylon-clear-choice-art-scholarship/">Krylon Clear Choice Art Scholarship </a>
+                </li>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="bg-skin-muted bg-opacity-20">
+          <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+            <p class="text-gray-500 text-sm text-center sm:text-left">© 2022 MindHub —
+              <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-600 ml-1"
+                target="_blank">@knyttneve</a>
+            </p>
+            <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start filtro1">
+              <a class="text-gray-500 hover:filtro2">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+                  viewBox="0 0 24 24">
+                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-500 hover:filtro2">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+                  viewBox="0 0 24 24">
+                  <path
+                    d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+                  </path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-500 hover:filtro2">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  class="w-5 h-5" viewBox="0 0 24 24">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-500 hover:filtro2">
+                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path stroke="none"
+                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                  <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                </svg>
+              </a>
+            </span>
+
+          </div>
+          
+        </div>
+
+
+      </footer>
+
+      <div class="relative">
+        <img src="/web/assets/est09s2.png" class="absolute w-80 md:w-60 h-auto bottom-0 left-0 z-20 m-0" alt="">
+      </div>
+        
+
+            
+
+    </div>
+    
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="/web/scripts/wallofartworks.js"></script>
+</body>
+
+</html>

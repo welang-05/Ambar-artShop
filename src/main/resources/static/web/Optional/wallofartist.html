@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/tailwind.css">
+    <title>Document</title>
+</head>
+
+<body class=" bg-gray-100">
+
+     <div id="app" v-cloak> 
+    
+    <!-- HEADER CON NAV -->
+    <header>
+
+        <div class="bg-slate-400 bg-opacity-30 flex justify-between w-screen p-7 fixed z-0">
+
+            <img class="w-3 h-4 z-20" src="../assets/logo_00.svg" alt="logo">
+            <nav class="flex">
+                <div class="flex text-blue-600">
+                    <a class="mr-6 ml-6" href="/index.html">Home</a>
+                    <a class="mr-6 ml-6" href="#">Store</a>
+                    <a class="mr-6 ml-6" href="/web/public/wallofartist.html">Artists</a>
+                    <a class="mr-6 ml-6" href="/web/public/wallofcourses.html">Courses</a>
+                    <a class="mr-6 ml-6" href="/web/public/shoppingcart.html">Shop cart</a>
+                </div>
+                <div v-show="user == 'visitor'" class="flex items-center mr-6 ml-6">
+                    <a class="mr-4 ml-6 px-5 py-3 text-opacity-80 text-skin-inverted hover:text-skin-base  sus" href="javascript:void(0);">Log in</a>
+                    <div class="font-xs opacity-30 text-skin-base">|</div> 
+                    <a class="mr-6 ml-3 text-skin-base text-opacity-100" href="javascript:void(0);">Sign in</a>
+                </div>
+                <div v-show= "user == 'authenticated'" class="relative">
+                  <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-5.jpg" alt="">
+                  <span class="top-0 left-7 absolute  w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
+              </div>
+            </nav>
+
+        </div>
+
+        <div class="container pt-24">
+            <div class="block b-1"></div>
+            <div class="block b-2"></div>
+            <div class="block b-3"></div>
+            <div class="block b-4"></div>
+            <div class="block b-5"></div>
+            <div class="block b-6"></div>
+            <div class="block b-7"></div>
+        </div>
+        <div class="overlay"></div>
+        <p class="title">lorem</p>
+
+    </header>
+
+
+    <!-- CUERPO -->
+
+    <main>
+
+
+
+    </main>
+
+    <!-- FOOTER -->
+
+
+
+       </div> 
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="/web/scripts/wallofartist.js"></script>
+
+
+
+</body>
+
+</html>

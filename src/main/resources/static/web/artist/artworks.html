@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/web/styles/tailwind.css">
+    <link rel="shortcut icon" href="/web/assets/logo01.png" type="image/x-icon">
+    <title>Artist den</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+</head>
+
+<body>
+
+    <div id="app" v-cloak>
+        <div :class="tema=='tema_1' ? '' : tema=='tema_2' ? 'theme2' : tema=='tema_3' ? 'theme3' : tema=='tema_4' ? 'theme4' : tema=='tema_5' ? 'theme5' : tema=='tema_6' ? 'theme6' : ''"
+            class="w-full min-h-screen flex flex-col aparecer2 bg-skin-normal">
+
+
+            <!-- HEADER CON NAV -->
+            <header>
+
+                <div ref="navbar" class="flex justify-between w-screen p-2 fixed z-0 place-items-center">
+
+                    <img :src=" tema=='tema_4' || tema=='tema_5' || tema=='tema_6' ? '/web/assets/logo02.png' : '/web/assets/logo01.png'" class="w-[3.5%] h-[3.5%] ml-4 aparecer transition-all ease-in-out duration-300" alt="logo">
+                    <nav class="flex font-bahnschrift">
+                        <div class="flex items-center">
+                            <a class="mr-6 ml-6 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100" href="/index.html">Home</a>
+                            <div class="font-xs opacity-30 text-skin-base">|</div> 
+                            <a class="mr-6 ml-6 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100" href="/web/public/wallofartworks.html">Store</a>
+                            <div class="font-xs opacity-30 text-skin-base">|</div> 
+                            <a class="mr-6 ml-6 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100" href="/web/public/wallofartist.html">Artists</a>
+                            <div class="font-xs opacity-30 text-skin-base">|</div> 
+                            <a class="mr-6 ml-6 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100" href="/web/public/shoppingcart.html">Shop cart</a>
+                        </div>
+                        <div v-show="user == 'visitor'" class="flex items-center mr-6 ml-6">
+                          <a class="mr-4 ml-6 px-5 py-3 text-opacity-80 text-skin-inverted hover:text-skin-base  sus" href="javascript:void(0);">Log in</a>
+                          <div class="font-xs opacity-30 text-skin-base">|</div> 
+                          <a class="mr-6 ml-3 text-skin-base text-opacity-100" href="javascript:void(0);">Sign in</a>
+                      </div>
+                      <div v-show= "user == 'authenticated'" class="relative">
+                        <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-5.jpg" alt="">
+                        <span class="top-0 left-7 absolute  w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
+                    </div>
+
+                        <div class="w-1/2">
+                            <button class="boton1s" @click="theme(1)">TEMA 1</button>
+                            <button class="boton1s" @click="theme(2)">TEMA 2</button>
+                            <button class="boton1s" @click="theme(3)">TEMA 3</button>
+                            <button class="boton1s" @click="theme(4)">TEMA 4</button>
+                            <button class="boton1s" @click="theme(5)">TEMA 5</button>
+                            <button class="boton1s" @click="theme(6)">TEMA 6</button>
+            
+                        </div>
+                    </nav>
+
+                </div>
+
+            </header> 
+           
+
+            <main class=" mt-24 p-8 ">
+            <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+              <div class=" bg-skin-cuasi-normal p-4 ">
+                <form >   
+                    <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
+                    <div class="relative">
+                        <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                            <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        </div>
+                        <input type="search" id="default-search" class="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border  focus:border-blue-500  dark:placeholder-gray-400 dark:text-skin-base " placeholder="Search ART" required>
+                        <button type="submit" class="text-skin-base absolute right-2.5 bottom-2.5 bg-skin-accent focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Search</button>
+                    </div>
+                </form>
+              </div>
+              <div class=" flex :flex-row p-6 bg-skin-cuasi-normal">
+                <div class=" flex flex-col justify-end ml-4 mb-4">
+                  <p class=" text-skin-base md:text-xl">New piece of art 🎨</p>
+                  <div>
+                    <button class="boton4s w-28 h-14">ADD</button>
+                  </div>
+                </div>
+              </div>
+        
+                <div class=" md:flex md:flex-row ">
+                  <div class=" bg-skin-accent p-5  m-7 rounded-md">
+                    <div>
+                      <img src="https://i.pinimg.com/736x/77/3b/8a/773b8aedcd243b4b49af53a0cb455d89.jpg" alt="">
+                    </div>
+                    <p class=" text-skin-inverted"> <i class="uil uil-award-alt text-skin-inverted text-2xl"></i> General info</p>
+                    <button class="boton1s w-24 h-14" data-modal-toggle="defaultModal">EDIT </button>
+                  </div>
+                  <div class=" bg-skin-accent p-5  m-7 rounded-md">
+                    <div>
+                      <img src="https://i.pinimg.com/736x/77/3b/8a/773b8aedcd243b4b49af53a0cb455d89.jpg" alt="">
+                    </div>
+                    <p class=" text-skin-inverted"> <i class="uil uil-award-alt text-skin-inverted text-2xl"></i> General info</p>
+                    <button class="boton1s w-24 h-14" data-modal-toggle="defaultModal">EDIT </button>
+                  </div>
+                  <div class=" bg-skin-accent p-5  m-7 rounded-md">
+                    <div>
+                      <img src="https://i.pinimg.com/736x/77/3b/8a/773b8aedcd243b4b49af53a0cb455d89.jpg" alt="">
+                    </div>
+                    <p class=" text-skin-inverted"> <i class="uil uil-award-alt text-skin-inverted text-2xl"></i> General info</p>
+                    <button class="boton1s w-24 h-14" data-modal-toggle="defaultModal">EDIT </button>
+                  </div>
+                </div>
+                <div class=" md:flex md:flex-row ">
+                    <div class=" bg-skin-accent p-5  m-7 rounded-md">
+                      <div>
+                        <img src="https://i.pinimg.com/736x/77/3b/8a/773b8aedcd243b4b49af53a0cb455d89.jpg" alt="">
+                      </div>
+                      <p class=" text-skin-inverted"> <i class="uil uil-award-alt text-skin-inverted text-2xl"></i> General info</p>
+                      <button class="boton1s w-24 h-14" data-modal-toggle="defaultModal">EDIT </button>
+                    </div>
+                    <div class=" bg-skin-accent p-5  m-7 rounded-md">
+                      <div>
+                        <img src="https://i.pinimg.com/736x/77/3b/8a/773b8aedcd243b4b49af53a0cb455d89.jpg" alt="">
+                      </div>
+                      <p class=" text-skin-inverted"> <i class="uil uil-award-alt text-skin-inverted text-2xl"></i> General info</p>
+                      <button class="boton1s w-24 h-14" data-modal-toggle="defaultModal">EDIT </button>
+                    </div>
+                    <div class=" bg-skin-accent p-5  m-7 rounded-md">
+                      <div>
+                        <img src="https://i.pinimg.com/736x/77/3b/8a/773b8aedcd243b4b49af53a0cb455d89.jpg" alt="">
+                      </div>
+                      <p class=" text-skin-inverted"> <i class="uil uil-award-alt text-skin-inverted text-2xl"></i> General info</p>
+                      <button class="boton1s w-24 h-14" data-modal-toggle="defaultModal">EDIT </button>
+                    </div>
+                  </div>
+             
+        
+          
+            </div>
+            </main>
+            <!--MODAL-->
+
+
+
+            <!--MODAL-->
+           
+
+            <img class="place-sel-center scale-[0.4] mt-9 opacity-70 transition-all ease-in-out duration-1000 filtro1 hover:filtro2 -scale-y-[0.4] w-full"
+            src="/web/assets/sep4.png" alt="">
+
+        <!-- FOOTER -->
+        <footer class="md:ml-40 font-quicksand">
+
+
+
+            <div class="px-5 py-24 md:flex overflow-hidden md:flex-nowrap flex-wra">
+                <!-- md:flex-row md:flex-nowrap flex-wrap flex-col overflow-hidden -->
+                <div
+                    class="w-64 flex-shrink-0 md:mx-0  md:text-left md:mt-0 mt-10 items-center md:justify-start justify-center place-items-center content-center inline m-0">
+                    <img :src=" tema=='tema_4' || tema=='tema_5' || tema=='tema_6' ? '/web/assets/logo02L.png' : '/web/assets/logo01L.png'"
+                        class="w-[60%] h-[60%] aparecer transition-all ease-in-out duration-1000 hover:filtro1"
+                        :class="tema=='tema_4' || tema=='tema_5' || tema=='tema_6' ? 'filtro2 hover:filtro1' : 'filtro1 hover:filtro2'"
+                        alt="logo">
+                </div>
+
+                <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
+                    <div class="lg:w-1/4 md:w-1/2  px-4 inline">
+                        <h2 class="title-font font-medium text-skin-accent tracking-widest text-sm mb-3 ">ART
+                            GALLERIES AROUND THE
+                            WORLD</h2>
+                        <nav class="list-none mb-10">
+                            <li>
+                                <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                    href="https://morettigallery.com/">Galleria Moretti</a>
+                            </li>
+                            <li>
+                                <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                    href="https://ariaartgallery.com/">Aria Art Gallery</a>
+                            </li>
+                            <li>
+                                <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                    href="https://www.florenceartgallery.com/">Florence Art Gallery</a>
+                            </li>
+                            <li>
+                                <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                    href="https://www.fornaciaiartgallery.com/">Fornaciai Art Gallery</a>
+                            </li>
+                            <li>
+                                <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                    href="http://www.galleriafaustini.it/site/en/">Galleria D'Arte Faustini</a>
+                            </li>
+                        </nav>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 px-4 inline">
+                        <h2 class="title-font font-medium text-skin-accent tracking-widest text-sm mb-3 ">LIST
+                            OF NGOS</h2>
+                        <nav class="list-none mb-10">
+                            <li>
+                                <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                    href="https://ngobridges.com/ngo?categories[]=3">Riga German Culture
+                                    Society</a>
+                            </li>
+                            <li>
+                                <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                    href="https://ngobridges.com/ngo?categories[]=3">Linking Foundation</a>
+                            </li>
+                            <li>
+                                <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                    href="https://ngobridges.com/ngo?categories[]=3">MTU Jazzon</a>
+                            </li>
+                            <li>
+                                <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                    href="https://ngobridges.com/ngo?categories[]=3">Island Panorama Center</a>
+                            </li>
+                        </nav>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 px-4 inline">
+                        <h2 class="title-font font-medium text-skin-accent tracking-widest text-sm mb-3 ">LIST
+                            OF AWARDS</h2>
+                        <nav class="list-none mb-10">
+                            <li>
+                                <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                    href="https://en.wikipedia.org/wiki/Leonardo_da_Vinci_World_Award_of_Arts">Leonardo
+                                    da Vinci World
+                                    Award of Arts</a>
+                            </li>
+                            <li>
+                                <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                    href="https://en.wikipedia.org/wiki/M%26C_Fine_Arts_Awards">M&C Fine Arts
+                                    Awards</a>
+                            </li>
+                            <li>
+                                <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                    href="https://en.wikipedia.org/wiki/Musgrave_Medal">Musgrave Medal</a>
+                            </li>
+                            <li>
+                                <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                    href="https://en.wikipedia.org/wiki/PIPA_Prize">PIPA Prize </a>
+                            </li>
+                        </nav>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2  px-4 inline">
+                        <h2 class="title-font font-medium text-skin-accent tracking-widest text-sm mb-3 ">ART
+                            SCHOLARSHIPS AROUND
+                            THE WORLD</h2>
+                        <nav class="list-none mb-10">
+                            <li>
+                                <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                    href="https://www.unsw.edu.au/arts-design-architecture/study-with-us/scholarships-and-prizes">Art
+                                    and design Scholarships @ UNSW</a>
+                            </li>
+                            <li>
+                                <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                    href="https://www.rmit.edu.au/students/careers-opportunities/scholarships">Art,
+                                    fashion and textiles
+                                    scholarships @ RMIT University </a>
+                            </li>
+                            <li>
+                                <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                    href="https://finearts-music.unimelb.edu.au/study-with-us/scholarships">Fine
+                                    arts and music
+                                    scholarships</a>
+                            </li>
+                            <li>
+                                <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                    href="https://www.krylon.com/community/krylon-clear-choice-art-scholarship/">Krylon
+                                    Clear Choice Art
+                                    Scholarship </a>
+                            </li>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-skin-muted bg-opacity-20">
+                <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row md:pl-20 pl-72">
+                    <p class="text-gray-500 text-sm text-center sm:text-left">© 2022 MindHub —
+                        <a href="https://twitter.com/knyttneve" rel="noopener noreferrer"
+                            class="text-gray-600 ml-1" target="_blank">@knyttneve</a>
+                    </p>
+                    <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start filtro1">
+                        <a class="text-gray-500 hover:filtro2">
+                            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a class="ml-3 text-gray-500 hover:filtro2">
+                            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                <path
+                                    d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a class="ml-3 text-gray-500 hover:filtro2">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                            </svg>
+                        </a>
+                        <a class="ml-3 text-gray-500 hover:filtro2">
+                            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                                <path stroke="none"
+                                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z">
+                                </path>
+                                <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                            </svg>
+                        </a>
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </footer>
+
+
+        <div class="relative">
+            <img src="/web/assets/est09s2.png"
+                class="absolute w-80 md:w-auto md:h-[600px] bottom-0 left-0 z-20 m-0 hidden md:block" alt="">
+        </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="/web/scripts/artworks.js"></script>
+</body>
+
+</html>

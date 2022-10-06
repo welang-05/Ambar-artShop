@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./web/styles/tailwind.css">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/web/assets/logo01.png" type="image/x-icon">
+    <!-- iconos -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <!-- librería flowbite -->
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
+    <title>Home | AMBAR</title>
+</head>
+
+<body>
+
+    <div id="app" v-cloak>
+        <div :class="tema=='tema_1' ? '' : tema=='tema_2' ? 'theme2' : tema=='tema_3' ? 'theme3' : tema=='tema_4' ? 'theme4' : tema=='tema_5' ? 'theme5' : tema=='tema_6' ? 'theme6' : ''"
+            class="min-h-screen bg-skin-normal aparecer2">
+
+            <!-- HEADER CON NAV -->
+            <header>
+
+                <div ref="navbar" class="A hidden md:flex justify-between w-screen p-2 fixed z-40 place-items-center">
+
+                    <!-- MENÚ DE TEMAS -->
+                    <div class="self-start ml-16 mt-6 pb-3 fixed md:flex hidden">
+                        <button id="dropdownRightButton" data-dropdown-toggle="dropdownRight"
+                            data-dropdown-placement="right" class="" type="button"><img
+                                src="/web/assets/icons/theme.svg" alt="temas" class="w-5 h-5 filtro1"></button>
+
+                        <div id="dropdownRight" class="hidden z-10 w-4 fixed pt-[10px] pl-5 aparecer"
+                            data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"
+                            style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform:z translate(0px, 810px);">
+                            <ul class="flex py-1 text-sm text-gray-700 dark:text-gray-200"
+                                aria-labelledby="dropdownDefault">
+                                <li>
+                                    <button
+                                        class="w-7 h-7 -translate-x-[13px] hover:w-10 hover:h-10  c-flex tclaro ease-in-out hover:z-50"
+                                        @click="theme(1)"><img src="/web/assets/icons/pincel1.svg"
+                                            class="w-4 h-4 filter1a" alt="theme1"></button>
+                                </li>
+                                <li>
+                                    <button
+                                        class="w-7 h-7 -translate-x-[26px] hover:w-10 hover:h-10  c-flex tclaro ease-in-out hover:z-50"
+                                        @click="theme(2)"><img src="/web/assets/icons/pincel1.svg"
+                                            class="w-4 h-4 filter2a" alt="theme2"></button>
+                                </li>
+                                <li>
+                                    <button
+                                        class="w-7 h-7 -translate-x-[39px] hover:w-10 hover:h-10  c-flex tclaro ease-in-out hover:z-50"
+                                        @click="theme(3)"><img src="/web/assets/icons/pincel1.svg"
+                                            class="w-4 h-4 filter3a" alt="theme3"></button>
+                                </li>
+                                <li>
+                                    <button
+                                        class="w-7 h-7 -translate-x-[52px] hover:w-10 hover:h-10  c-flex toscuro ease-in-out hover:z-50"
+                                        @click="theme(4)"><img src="/web/assets/icons/pincel1.svg"
+                                            class="w-4 h-4 filter4b" alt="theme4"></button>
+                                </li>
+                                <li>
+                                    <button
+                                        class="w-7 h-7 -translate-x-[65px] hover:w-10 hover:h-10  c-flex toscuro ease-in-out hover:z-50"
+                                        @click="theme(5)"><img src="/web/assets/icons/pincel1.svg"
+                                            class="w-4 h-4 filter5b" alt="theme5"></button>
+                                </li>
+                                <li>
+                                    <button
+                                        class="w-7 h-7 -translate-x-[78px] hover:w-10 hover:h-10  c-flex toscuro ease-in-out hover:z-50"
+                                        @click="theme(6)"><img src="/web/assets/icons/pincel1.svg"
+                                            class="w-4 h-4 filter6b" alt="theme6"></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <img :src=" tema=='tema_4' || tema=='tema_5' || tema=='tema_6' ? '/web/assets/logo02.png' : '/web/assets/logo01.png'"
+                        class="w-[3.5%] h-[3.5%] ml-4 p-1 m-1 aparecer transition-all ease-in-out duration-300"
+                        :class="tema=='tema_4' || tema=='tema_5' || tema=='tema_6' ? 'filtro2' : 'filtro1'" alt="logo">
+
+
+
+                    <nav class="flex font-bahnschrift">
+                        <div class="flex items-center">
+                            <a class="mr-6 ml-6 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100"
+                                href="/main.html">Home</a>
+                            <div class="font-xs opacity-30 text-skin-base">|</div>
+                            <a class="mr-6 ml-6 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100"
+                                href="/web/public/wallofartworks.html">Store</a>
+                            <div class="font-xs opacity-30 text-skin-base">|</div>
+                            <a class="mr-6 ml-6 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100"
+                                href="/web/public/wallofartist.html">Artists</a>
+                            <div class="font-xs opacity-30 text-skin-base">|</div>
+                            <a class="mr-6 ml-6 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100"
+                                href="/web/public/shoppingcart.html">Cart</a>
+                        </div>
+
+                        <div v-show="user=='visitor' || user==''" class="flex items-center mr-6 ml-6">
+                            <a class="mr-4 ml-6 px-5 py-3 text-opacity-80 text-skin-inverted hover:text-skin-base  sus"
+                                href="javascript:void(0);" @click="modalLoginRegister=true, modal='login'">Log
+                                in</a>
+                            <div class="font-xs opacity-30 text-skin-base">|</div>
+                            <a class="mr-6 ml-3 text-skin-base text-opacity-100" href="javascript:void(0);"
+                                @click="modalLoginRegister=true, modal='register'">Sign in</a>
+                        </div>
+
+                        <div v-show="user=='authenticated'" class="flex items-center justify-between mr-6 ml-6 group">
+                            <!-- Foto si es CLIENTE, sin ancor -->
+                            <img :src="profileImage" v-show="profileInfo.typeUser == 'CLIENT'" alt=""
+                                class="w-14 h-14  bg-cover bg-no-repeat rounded-full z-[41]">
+                            <!-- Foto si es ARTISTA, con ancor a página personal -->
+                            <a v-show="profileInfo.typeUser == 'ARTIST'"
+                                :href="'/web/artist/artistpage.html?id='+profileInfo.id" class="z-[41]">
+                                <img :src="profileImage" alt=""
+                                    class="w-14 h-14 mr-1  bg-cover bg-no-repeat rounded-full">
+                            </a>
+                            <!-- DIV DETRÁS DE IMAGEN PARA EDITAR -->
+                            <button
+                                class="relative group-hover:-translate-x-6 transition-all duration-700 ease-in-out c-flex"
+                                @click="modalUploadPhoto=true">
+                                <div
+                                    class="right-1 -top-7 absolute w-14 h-14 rounded-full  hover:bg-skin-base z-40 peer">
+                                    <img :src="profileImage" alt=""
+                                        class="w-14 h-14 mr-1  bg-cover bg-no-repeat rounded-full opacity-50 hover:contrast-150 ease-out duration-300">
+                                </div>
+                                <div
+                                    class="absolute -top-8 -left-16 z-[41] opacity-0 peer-hover:opacity-100 text-skin-base text-3xl font-bold ease-in-out duration-300">
+                                    +
+                                </div>
+                            </button>
+
+
+                            <a class="mr-4 ml-6 px-5 py-3 text-opacity-80 text-skin-inverted hover:text-skin-base sus"
+                                href="javascript:void(0);" @click="logout">Log out</a>
+                        </div>
+                    </nav>
+
+                </div>
+
+
+            </header>
+            <!-- NAV-BAR MOBILE -->
+            <header class="md:hidden">
+                <div class="justify-center items-center fixed top-0 glass1 w-[100vw] max-w-screen z-40">
+                    <div class=" py-2">
+                        <div>
+                            <img :src=" tema=='tema_4' || tema=='tema_5' || tema=='tema_6' ? '/web/assets/logo02.png' : '/web/assets/logo01.png'"
+                                class=" ml-4 aparecer transition-all ease-in-out duration-300 fixed left-0 w-[40px] h-auto"
+                                alt="logo">
+                        </div>
+
+                        <!-- MENÚ DE TEMAS -->
+                        <div class="self-start ml-16 mt-6 pb-3 fixed md:hidden flex">
+                            <button class="" type="button"><img src="/web/assets/icons/theme.svg" alt="temas"
+                                    class="w-5 h-5 filtro1" @click="prueba"></button>
+                        </div>
+
+
+
+                        <div class="fixed right-0 flex" v-show="user=='visitor'">
+                            <a class=" px-5 py-3 text-opacity-80 text-skin-inverted hover:text-skin-base sus"
+                                href="javascript:void(0);" @click="modalLoginRegister=true, modal='login'">Log in</a>
+
+                            <a class=" px-5 py-3 text-skin-base text-opacity-100" href="javascript:void(0);"
+                                @click="modalLoginRegister=true, modal='register'">Sign in</a>
+                        </div>
+                        <div v-show="user=='authenticated'"
+                            class="flex items-center justify-end mr-1 ml-6 group md:hidden">
+                            <a class="mr-4  px-5 py-3 text-opacity-80 text-skin-inverted hover:text-skin-base sus"
+                                href="javascript:void(0);" @click="logout">Log out</a>
+                            <img :src="profileImage" alt="" class="w-14 h-14 mr-1  bg-cover bg-no-repeat rounded-full"
+                                @click="modalUploadPhoto=true">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="flex justify-center fixed bottom-0 glass1 w-[100vw] max-w-screen py-3 font-semibold z-[42] font-bahnschrift">
+                    <nav class="flex">
+                        <div class="flex items-center">
+                            <a class="mr-3 ml-3 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100"
+                                href="/main.html">Home</a>
+                            <div class="font-xs opacity-30 text-skin-base">|</div>
+                            <a class="mr-3 ml-3 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100"
+                                href="#">Store</a>
+                            <div class="font-xs opacity-30 text-skin-base">|</div>
+                            <a class="mr-3 ml-3 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100"
+                                href="/web/public/wallofartist.html">Artists</a>
+                            <div class="font-xs opacity-30 text-skin-base">|</div>
+                            <a class="mr-3 ml-3 text-skin-base text-opacity-50 hover:text-opacity-100 transition-all ease-in duration-100"
+                                href="/web/public/shoppingcart.html">Cart</a>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+
+            <!-- CUERPO -->
+
+            <main class="pt-24">
+
+                <audio id="intro"
+                    src="web/assets/y2mate.com - Antonio Vivaldi  Allegro non molto from Winter from The Four Seasons.mp3"
+                    autoplay="true"></audio>
+                <button v-show="!state"
+                    class="inline-block p-3 rounded-full focus:outline-none focus:ring fixed top-24 right-10 hover:shadow-[1px_1px_5px_rgba(var(--color-normal),0.8)] ease-in duration-300 filtro1 hover:filtro2 border-2"
+                    @click="estado">
+                    <img src="/web/assets/mute.png" alt="" class="w-6 h-6 ">
+                </button>
+
+                <button v-show="state"
+                    class="inline-block p-3 rounded-full focus:outline-none focus:ring fixed top-24 right-10 hover:shadow-[1px_1px_5px_rgba(var(--color-normal),0.8)] ease-in duration-300 filtro1 hover:filtro2 border-2"
+                    @click="estado">
+                    <img src="/web/assets/unmuted.png" alt="" class="w-6 h-6 ">
+                </button>
+
+                <!-- BIENVENIDA -->
+                <section class="md:h-[60vh] p-36 pb-20 c-flex">
+                    <div class="w-56 md:w-96 h-auto flex-shrink-0 md:mx-0 mx-auto md:text-left md:mt-0 mt-2 relative">
+                        <img :src=" tema=='tema_4' || tema=='tema_5' || tema=='tema_6' ? '/web/assets/logo02L.png' : '/web/assets/logo01L.png'"
+                            class=" w-auto h-auto aparecer"
+                            :class="tema=='tema_4' || tema=='tema_5' || tema=='tema_6' ? 'filtro2' : 'filtro1'"
+                            alt="logo">
+                    </div>
+                </section>
+
+                <div class="c-flex mt-16 mb-32 fadeIn">
+                    <!-- SEPARADOR -->
+                    <img class="antialiased place-sel-center md:scale-[0.7] scale-[.4] mt-2  transition-all ease-in-out duration-1000 filtro2 opacity-90"
+                        src="/web/assets/sep3.png" alt="">
+                </div>
+
+                <!-- BANNER PUBLICITY A-->
+                <section class="flex justify-around w-full h-[80vh] bg-skin-normal overflow-hidden my-12">
+
+                    <div class="w-full h-full flex">
+
+                        <div class="overflow-hidden relative w-1/3 h-full md:c-flex">
+                            <img class="bannerA relative md:min-w-[1322px] min-w-[1000px] h-auto md:bottom-[100px] bottom-40  "
+                                src="https://pro2-bar-s3-cdn-cf5.myportfolio.com/49837808-3263-4d2a-a921-3c23a3b02733/64d9f299-f1a5-46c2-a276-d6734cf23d71_rw_1920.jpg?h=8234f29f81b2503f6f9c24e9fe212c4b"
+                                alt="" data-mod-y="20">
+                        </div>
+
+                        <div class="overflow-hidden relative w-1/3 h-full c-flex border-x-8 border-skin-normal">
+                            <img class="bannerA relative md:min-w-[880px] min-w-[750px] h-auto -bottom-40 "
+                                src="https://i.etsystatic.com/13820090/r/il/5a453f/1063170828/il_fullxfull.1063170828_kqy0.jpg"
+                                data-mod-y="-30" alt="">
+                        </div>
+
+                        <div class="overflow-hidden relative w-1/3 h-full md:c-flex">
+                            <img class="bannerA relative md:min-w-[1322px] min-w-[1000px] h-auto md:bottom-[100px] bottom-40 md:-left-[300px] -left-[700px] contrast-125"
+                                src="https://guerrerohistory.files.wordpress.com/2013/12/botticelli-birth-of-venus-detail.jpg"
+                                alt="" data-mod-y="20">
+                        </div>
+
+                </section>
+
+
+                <!-- BANNER PUBLICITY 0 -->
+                <section class="c-flex flex-col md:h-[10vh] md:pb-0 md:pt-10 pt-10 pb-20">
+                    <h2 class="bannerA fadeIn title-font sm:text-4xl text-3xl font-bahnschrift md:mb-14 font-medium text-skin-base py-5 md:py-0 text-center"
+                        data-mod-y="5">
+                        THE GALLERY YOU NEEDED
+                    </h2>
+                    <!-- SEPARADOR -->
+                    <img class="fadeIn antialiased place-sel-center md:scale-[0.7] scale-[.4] mt-6  transition-all ease-in-out duration-1000 filtro1 opacity-90"
+                        src="/web/assets/sep6.png" alt="">
+                </section>
+
+                <!-- ÁNGELES 1 -->
+                <section class="fadeIn flex justify-between w-full h-52 mb-32">
+                    <div class="relative w-auto h-auto"></div>
+                    <img class="absolute md:h-[200px] h-[150px] right-0 bannerA" data-mod-y="-13"
+                        src="/web/assets/angel3.png" alt="angel">
+                    <div class="relative w-auto h-auto "></div>
+                    <img class="absolute md:h-[200px] h-[150px] left-0 bannerA" data-mod-y="-13"
+                        src="/web/assets/angel32.png" alt="angel">
+                </section>
+
+
+                <!-- BANNER MUCHAS OBRAS ROLL EN DIAGONAL CON SCROLL-->
+                <section class="flex justify-center w-full h-[100vh] overflow-hidden -mt-24">
+
+                    <div class="overflow-hidden w-1/2 md:rounded-l-full">
+
+                        <div class="-rotate-[18deg] flex justify-center -translate-y-20">
+
+
+                            <div class="bannerA w-72 h-[120vh] align-top -mt-10" data-mod-y="20">
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://images.squarespace-cdn.com/content/v1/56ba660c859fd0d3d3173d5d/1599070629307-ZI831CUD31YTN8WNW3JG/image-asset.jpeg')] bg-no-repeat bg-[length:150%] bg-center">
+                                </div>
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://scentofagamer.files.wordpress.com/2017/09/0265_cuombajj_witches_by_seb_m-dbiufpu.jpg')] bg-no-repeat bg-[length:150%] bg-center">
+                                </div>
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://preview.redd.it/zakzznbhna521.jpg?auto=webp&s=db06aedda5a3b1a00b7b6b5f7a302cf0fb45c08d')] bg-no-repeat bg-[length:150%] bg-center">
+                                </div>
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://pbs.twimg.com/profile_images/910180438924300288/oJQHZdZn_400x400.jpg')] bg-no-repeat bg-[length:150%] bg-center">
+                                </div>
+
+                            </div>
+
+                            <div class="bannerA w-72 h-[120vh] align-top -mt-24" data-mod-y="-20">
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://www.rocketchainsaw.com.au/wp-content/uploads/2022/04/new-capenna-feature.jpg')] bg-no-repeat bg-[length:190%] bg-center">
+                                </div>
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://cdnb.artstation.com/p/assets/images/images/019/864/321/smaller_square/donato-giancola-throneofeldrainekiss-donato-3000-copy.jpg?1565321839')] bg-no-repeat bg-[length:150%] bg-center">
+                                </div>
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://scentofagamer.files.wordpress.com/2013/12/cartographer.jpg')] bg-no-repeat bg-[length:150%] bg-center">
+                                </div>
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://draftsim.com/wp-content/uploads/2020/05/Gift-of-Orzhova-MTG-card-art-by-Johannes-Voss-1024x748.jpg')] bg-no-repeat bg-[length:150%] bg-center">
+                                </div>
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://pbs.twimg.com/profile_images/910180438924300288/oJQHZdZn_400x400.jpg')] bg-no-repeat bg-[length:150%] bg-center">
+                                </div>
+
+                            </div>
+
+                            <div class="bannerA w-72 h-[120vh] align-top -mt-20" data-mod-y="30">
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('http://chetart.com/blog/wp-content/uploads/2012/12/Donato-Giancola.jpg')] bg-no-repeat bg-[length:190%] bg-center">
+                                </div>
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://i0.wp.com/www.tor.com/wp-content/uploads/2019/04/Donato_LotR_1.jpg?fit=740%2C+9999&crop=0%2C0%2C100%2C416px&ssl=1')] bg-no-repeat bg-[length:190%] bg-center">
+                                </div>
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://i.pinimg.com/originals/80/89/1e/80891ecce346fcef2e257f9965f07b18.jpg')] bg-no-repeat bg-[length:150%] bg-center">
+                                </div>
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://i.pinimg.com/736x/5c/ef/dd/5cefdde59eb6100c4fe4f5c623b0ccbe--eldritch-moon-mtg-art.jpg')] bg-no-repeat bg-[length:150%] bg-center">
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="overflow-hidden w-1/2 md:rounded-r-full">
+
+                        <div class="rotate-[18deg] flex justify-center -translate-y-20">
+
+
+                            <div class="bannerA w-72 h-[120vh] align-top -mt-20" data-mod-y="30">
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://i.pinimg.com/originals/95/4f/d6/954fd68a8539add3d5dc211472a2b495.jpg')] bg-no-repeat bg-[length:150%] bg-center">
+                                </div>
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://media.nga.gov/iiif/fe16802f-5724-4206-979c-268e5cbfe615/full/!740,560/0/default.jpg')] bg-no-repeat bg-[length:150%] bg-center">
+                                </div>
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('http://justfunfacts.com/wp-content/uploads/2022/03/sculpture-2.jpg')] bg-no-repeat bg-[length:150%] bg-center">
+                                </div>
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://static.demilked.com/wp-content/uploads/2021/01/stunning-bronze-sculptures-coderch-malavia-11.jpg')] bg-no-repeat bg-[length:150%] bg-center">
+                                </div>
+
+                            </div>
+
+                            <div class="bannerA w-72 h-[120vh] align-top -mt-24" data-mod-y="-20">
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Michelangelo%27s_Pieta_5450_cut_out_black.jpg/640px-Michelangelo%27s_Pieta_5450_cut_out_black.jpg')] bg-no-repeat bg-[length:150%] bg-center">
+                                </div>
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://media.istockphoto.com/photos/moses-renaissance-sculpture-by-michelangelo-buonarroti-picture-id1222715602?k=20&m=1222715602&s=170667a&w=0&h=CgIv-0xIbSQIwmTRTzQ-tF8HSQ9tVg8FeoLAdvw20nk=')] bg-no-repeat bg-[length:150%] bg-center">
+                                </div>
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://cdn.shopify.com/s/files/1/1414/2472/files/1-_604px-Mona_Lisa__by_Leonardo_da_Vinci__from_C2RMF_retouched.jpg?v=1558424691')] bg-no-repeat bg-[length:150%] bg-center">
+                                </div>
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://luxurycolumnist.com/wp-content/uploads/2022/01/Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel.jpg')] bg-no-repeat bg-[length:150%] bg-center">
+                                </div>
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://www.flametreepublishing.com/ProductImages/renaissance-masterpieces-of-art-isbn-9781787556966.0.jpg')] bg-no-repeat bg-[length:150%] bg-center">
+                                </div>
+
+                            </div>
+
+                            <div class="bannerA w-72 h-[120vh] align-top -mt-10" data-mod-y="20">
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://www.flametreepublishing.com/ProductImages/renaissance-masterpieces-of-art-isbn-9781787556966.0.jpg')] bg-no-repeat bg-[length:150%] bg-center">
+                                </div>
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://artincontext.org/wp-content/uploads/2021/08/Detail-of-Famous-Renaissance-Art.jpg')] bg-no-repeat bg-[length:150%] bg-center">
+                                </div>
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://static.nationalgeographic.co.uk/files/styles/image_3200/public/raphael-og-03.jpg?w=400&h=400&q=75')] bg-no-repeat bg-[length:150%] bg-center">
+                                </div>
+
+                                <div
+                                    class="overflow-hidden relative w-72 h-72 bg-[url('https://static01.nyt.com/images/2021/12/17/arts/16wadsworth-review-1/merlin_199297380_ad31742c-891c-4f85-a194-dfd2dc4d255e-articleLarge.jpg?quality=75&auto=webp&disable=upscale')] bg-no-repeat bg-[length:150%] bg-center">
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                </section>
+
+
+                <!-- BANNER PUBLICITY B-->
+                <section class="flex c-flex justify-around w-full h-[20vh] overflow-hidden">
+
+                    <div class="p-10 fadeIn">
+                        <p class="md:text-7xl font-bahnschrift text-skin-muted ">WHERE OLD AND NEW <b
+                                class="text-skin-accent font-bahnschrift font-normal">MERGE</b></p>
+                    </div>
+
+                </section>
+
+                <!-- BANNER PUBLICITY 0 -->
+                <section class=" text-skin-inverted c-flex flex-col md:h-[85vh] md:mb-12">
+                    <h2
+                        class="fadeIn title-font sm:text-4xl text-3xl font-bahnschrift md:mb-14 font-medium text-skin-base py-5 md:py-0 text-center">
+                        IF YOU ARE AN ARTIST OR AN ARTIS LOVER, THIS IS YOUR PLACE
+                    </h2>
+
+                    <div class="flex">
+                        <div class=" md:flex md:mt-3 flex justify-center items-center  md:flex-row">
+                            <div class=" h-4/6  md:h-auto flex  justify-between items-center overflow-hidden group">
+
+                                <div
+                                    class="h-[400px] w-[250px] md:h-[400px] md:w-[700px] bg-[url('https://images.pexels.com/photos/4585185/pexels-photo-4585185.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover bg-center bg-no-repeat group-hover:scale-125 transition-all ease-in duration-300">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="c-flex flex-col justify-center items-center md:pl-10">
+                            <p class="mt-3 px-3 md:w-80 text-center text-xs text-skin-base md:text-xl font-quicksand">
+                                Many people have
+                                already
+                                entered in our community to buy and
+                                upload the best works, here nobody stops you, you can reach people from all around the
+                                world. </p>
+                            <div class="place-self-center bg-skin-accent h-[1.2px] lg:w-1/2 w-full mt-9 bg-opacity-20">
+                            </div><!-- LINE -->
+                            <div class="container py-5 mx-auto text-skin-accent">
+                                <div class="flex flex-wrap justify-around -m-4 text-center px-2">
+                                    <div class="p-4 sm:w-1/2 w-1/2 hover:scale-125 transition-transform ease-out">
+                                        <h2 class="title-font font-medium sm:text-4xl text-3xl">212K</h2>
+                                        <p class="leading-relaxed">Art Lovers</p>
+                                    </div>
+                                    <div class="p-4 sm:w-1/2 w-1/2 hover:scale-125 transition-transform ease-out">
+                                        <h2 class="title-font font-medium  sm:text-4xl text-3xl">1.8K
+                                        </h2>
+                                        <p class="leading-relaxed">Artists</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- SEPARADOR -->
+                <div class="w-full c-flex fadeIn">
+                    <img class=" antialiased place-self-center md:scale-[0.7] scale-[.4] mt-6  transition-all ease-in-out duration-1000 filtro1 opacity-90"
+                        src="/web/assets/sep8.png" alt="">
+                </div>
+
+                <!-- DAVID SE ASOMA -->
+                <section class="flex fadeIn justify-between w-full mb-48 -translate-y-20">
+                    <div class="relative w-auto h-auto"></div>
+                    <img class="absolute md:h-[300px] h-[150px] right-0 bannerA" data-mod-y="15"
+                        src="/web/assets/seasoma3.png" alt="angel">
+                    <div class="relative w-auto h-auto "></div>
+                    <img class="absolute md:h-[300px] h-[150px] left-0 bannerA" data-mod-y="15"
+                        src="/web/assets/seasoma31.png" alt="angel">
+                </section>
+
+
+                <!-- SECTION publicity2 -->
+                <section class=" text-skin-base body-font">
+                    <div class="container mx-auto flex py-24 md:flex-row flex-col items-center">
+                        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 md:mb-0 mb-10 overflow-hidden group">
+                            <img class="object-cover object-center rounded-r-xl group-hover:scale-125 transition-all ease-in duration-300"
+                                alt="hero"
+                                src="https://img.freepik.com/fotos-premium/estatua-venus-milo-imagen-neon-colorido-concepto-creativo-escultura-griega-antigua-venus-o-cabeza-afrodita-webpunk-vaporwave-estilo-artistico-surrealista-efectos-duotono-rosa-azul_155402-508.jpg">
+                        </div>
+                        <div
+                            class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center p-3">
+                            <h2
+                                class="title-font font-bahnschrift sm:text-4xl text-3xl mb-4 font-medium text-skin-muted">
+                                The
+                                best artworks
+                                are
+                                in this place, and the best artists too!
+                            </h2>
+                            <p class="mb-8 px-4 leading-relaxed">Did you ever think something like this would be
+                                possible? A
+                                virtual gallery? It is already done! We take care that your productions reach
+                                everyone.
+                            </p>
+                            <div class="flex justify-center text-skin-accent">
+                                <a href="./web/public/wallofartist.html" class="boton1 c-flex">See the artists</a>
+                                <a href="./web/public/wallofartworks.html" class="boton3">See
+                                    the artworks</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION artists -->
+                <div id="default-carousel" class="relative bg-opacity-20 w-full" data-carousel="static">
+                    <!-- Carousel wrapper -->
+                    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                        <!-- Item 1 -->
+                        <div class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-0 z-20"
+                            data-carousel-item="">
+                            <!-- PERFIL CARD -->
+                            <!-- -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 -->
+                            <div class="absolute w-full h-full py-4 flex items-center justify-evenly px-4">
+                                <div class="w-[190px] md:w-[375px] h-[190px] md:h-[300px] bg-skin-inverted bg-opacity-80 rounded-tr-3xl hover:rounded-tr-none rounded-bl-3xl hover:rounded-bl-none hover:rounded-tl-3xl hover:rounded-br-3xl transition-all ease-in-out duration-300 hover:border hover:border-skin-muted hover:shadow-[1px_1px_5px_rgba(var(--color-text-base),0.5)]"
+                                    v-for="artist in arrayArtists1">
+
+                                    <div class="flex flex-col justify-center items-center mb:pb-10 h-full mb:h-auto">
+                                        <img class="mb-3 w-24 h-auto rounded-full shadow-lg" :src="artist.image">
+                                        <div
+                                            class="md:w-full md:flex md:flex-col md:justify-center md:items-center font-bahnschrift">
+                                            <h5 class="mb-1 text-xl font-medium text-skin-inverted-accent">
+                                                {{artist.name + " " +artist.lastName}}
+                                            </h5>
+                                            <span class="hidden md:block text-sm text-skin-inverted">Artist</span>
+                                            <div class="hidden md:block mt-4 space-x-3 md:mt-6">
+                                                <a :href="'./web/artistandartlovers/artistpage.html?id='+artist.id"
+                                                    class="boton2">View Page</a>
+                                                <!--                                                     <a href="./web/public/wallofartist.html" class="boton4">See
+                                                        more
+                                                        artists</a> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-0 z-20"
+                            data-carousel-item="">
+                            <!-- PERFIL CARD -->
+                            <!-- -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 -->
+                            <div class="absolute w-full h-full py-4 flex items-center justify-evenly px-4">
+                                <div class="w-[190px] md:w-[375px] h-[190px] md:h-[300px] bg-skin-inverted bg-opacity-80 rounded-tr-3xl hover:rounded-tr-none rounded-bl-3xl hover:rounded-bl-none hover:rounded-tl-3xl hover:rounded-br-3xl transition-all ease-in-out duration-300 hover:border hover:border-skin-muted hover:shadow-[1px_1px_5px_rgba(var(--color-text-base),0.5)]"
+                                    v-for="artist in arrayArtists2">
+
+                                    <div class="flex flex-col justify-center items-center mb:pb-10 h-full mb:h-auto">
+                                        <img class="mb-3 w-24 h-auto rounded-full shadow-lg" :src="artist.image">
+                                        <div
+                                            class="md:w-full md:flex md:flex-col md:justify-center md:items-center font-bahnschrift">
+                                            <h5 class="mb-1 text-xl font-medium text-skin-inverted-accent">
+                                                {{artist.name + " " +artist.lastName}}
+                                            </h5>
+                                            <span class="hidden md:block text-sm text-skin-inverted">Artist</span>
+                                            <div class="hidden md:block mt-4 space-x-3 md:mt-6">
+                                                <a :href="'./web/artistandartlovers/artistpage.html?id='+artist.id"
+                                                    class="boton2">View Page</a>
+                                                <!--                                                     <a href="./web/public/wallofartist.html" class="boton4">See
+                                                        more
+                                                        artists</a> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- Item 3 -->
+                        <div class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-0 z-20"
+                            data-carousel-item="">
+                            <!-- PERFIL CARD -->
+                            <!-- -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 -->
+                            <div class="absolute w-full h-full py-4 flex items-center justify-evenly px-4">
+                                <div class="w-[190px] md:w-[375px] h-[190px] md:h-[300px] bg-skin-inverted bg-opacity-80 rounded-tr-3xl hover:rounded-tr-none rounded-bl-3xl hover:rounded-bl-none hover:rounded-tl-3xl hover:rounded-br-3xl transition-all ease-in-out duration-300 hover:border hover:border-skin-muted hover:shadow-[1px_1px_5px_rgba(var(--color-text-base),0.5)]"
+                                    v-for="artist in arrayArtists3">
+
+                                    <div class="flex flex-col justify-center items-center mb:pb-10 h-full mb:h-auto">
+                                        <img class="mb-3 w-24 h-auto rounded-full shadow-lg" :src="artist.image">
+                                        <div
+                                            class="md:w-full md:flex md:flex-col md:justify-center md:items-center font-bahnschrift">
+                                            <h5 class="mb-1 text-xl font-medium text-skin-inverted-accent">
+                                                {{artist.name + " " +artist.lastName}}
+                                            </h5>
+                                            <span class="hidden md:block text-sm text-skin-inverted">Artist</span>
+                                            <div class="hidden md:block mt-4 space-x-3 md:mt-6">
+                                                <a :href="'./web/artistandartlovers/artistpage.html?id='+artist.id"
+                                                    class="boton2">View Page</a>
+                                                <!--                                                     <a href="./web/public/wallofartist.html" class="boton4">See
+                                                        more
+                                                        artists</a> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Slider indicators -->
+
+                    <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+                        <button type="button" class="w-3 h-3 rounded-full bg-white dark:bg-gray-800" aria-current="true"
+                            aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                        <button type="button"
+                            class="w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
+                            aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                        <button type="button"
+                            class="w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
+                            aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                    </div>
+                    <!-- Slider controls -->
+
+                    <button type="button"
+                        class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                        data-carousel-prev="">
+                        <span
+                            class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-skin-cuasi-normal/50 group-hover:bg-skin-normal/70 group-focus:ring-4 group-focus:bg-skin-accent group-focus:outline-none">
+                            <svg aria-hidden="true" class="w-5 h-5 text-skin-accent sm:w-6 sm:h-6" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7">
+                                </path>
+                            </svg>
+                            <span class="sr-only">Previous</span>
+                        </span>
+                    </button>
+                    <button type="button"
+                        class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                        data-carousel-next="">
+                        <span
+                            class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-skin-cuasi-normal/50 group-hover:bg-skin-normal/70 group-focus:ring-4 group-focus:bg-skin-accent group-focus:outline-none">
+                            <svg aria-hidden="true" class="w-5 h-5 text-skin-accent sm:w-6 sm:h-6" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                            <span class="sr-only">Next</span>
+                        </span>
+                    </button>
+                </div>
+
+                <!-- SECTION Invitation to login -->
+                <section class="w-full text-skin-muted body-font group ">
+                    <div class="container py-24 mx-auto">
+                        <div class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-auto">
+                            <h1
+                                class="flex-grow sm:pr-16 text-2xl font-medium title-font mb-10 md:mb-0 hover:text-skin-accent ease-in-out duration-300">
+                                Don't
+                                forget,
+                                everything you do here will grow infinitely!</h1>
+                            <button class="boton3" data-modal-toggle="authentication-modal"
+                                @click="activeModal=true, modal='login', goTo='Store'">Log in</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="flex flex-wrap justify-around h-auto pt-6 pb-32">
+                    <!-- CARD OBRA DE ARTE -->
+                    <div v-for="product in products.slice(0,3)" href="#"
+                        class="group m-5 block overflow-hidden rounded-t-2xl rounded-b-3xl md:w-[300px] aspect-card2 ">
+                        <div
+                            class="overflow-hidden aspect-card1 w-full border-b-[6px] border-skin-muted border-opacity-60 group-hover:border-opacity-100">
+                            <img alt="venus" :src="product.image"
+                                class="saturate-[.9] hover:saturate-100 group-hover:scale-125 transition-all ease-in duration-300" />
+                        </div>
+
+                        <div
+                            class="flex flex-col p-5 bg-skin-normal group-hover:bg-skin-inverted w-full h-64 transition-all ease-in-out duration-1000">
+                            <h5
+                                class="text-center text-lg font-bahnschrift text-skin-accent group-hover:text-skin-inverted-accent">
+                                {{product.name}}
+                            </h5>
+
+                            <!--          <p
+                      class="text-center text-xs font-quicksand text-skin-base text-opacity-60 group-hover:text-skin-inverted   group-hover:text-opacity-70">
+                      Pintura - 36cm x 87cm</p> -->
+
+                            <p
+                                class="text-justify mt-3 text-xs font-quicksand text-skin-base group-hover:text-skin-inverted text-opacity-90">
+                                {{product.description.slice(0,90)}}...
+                            </p>
+
+                            <!-- SEPARADOR -->
+                            <img class="place-sel-center scale-[0.1] -mb-2 opacity-40 transition-all ease-in-out duration-1000 filtro2 group-hover:opacity-90"
+                                src="/web/assets/sep9.png" alt="" />
+
+                            <a class="c-flex flex-col transition-all ease-in-out duration-500"
+                                :href="'/web/artlover/artistpageclient.html?id='+product.artistId">
+                                <button class="boton1s w-36 h-14 c-flex"> <img src="/web/assets/icons/icon-13.png"
+                                        class="w-7 mr-3 filtro1" alt=""> VIEW ARTIST</button>
+                            </a>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- SECTION artist of the year -->
+                <section class="text-black bg-skin-muted bg-opacity-25 body-font rounded-b-lg">
+                    <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+                        <h1 class="title-font font-bahnschrift sm:text-4xl text-3xl mb-4 font-medium text-skin-base">
+                            This is the best
+                            artist at this moment, congratulations!</h1>
+                        <div class="overflow-hidden group c-flex">
+                            <img class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded group-hover:scale-125 transition-all ease-in duration-300"
+                                alt="hero" :src="bestArtist.image">
+                        </div>
+                        <div class="text-center lg:w-2/3 w-full">
+                            <h1 class="title-font sm:text-4xl font-bahnschrift text-3xl mb-4 font-medium "
+                                :class="tema=='tema_4' || tema=='tema_5' || tema=='tema_6' ? 'text-black' : 'text-white'">
+                                {{bestArtist.name + " " + bestArtist.lastName}}</h1>
+                            <p class="leading-relaxed mb-8">Meggings kinfolk echo park stumptown DIY, kale chips
+                                beard
+                                jianbing tousled. Chambray dreamcatcher trust fund, kitsch vice godard disrupt
+                                ramps
+                                hexagon mustache umami snackwave tilde chillwave ugh. Pour-over meditation
+                                PBR&amp;B
+                                pickled ennui celiac mlkshk freegan photo booth af fingerstache pitchfork.</p>
+                            <button class="flex justify-center w-full items-center">
+                                <a :href="'./web/artistandartlovers/artistpage.html?id='+bestArtist.id"
+                                    class="boton2">See
+                                    the artist</a>
+                                <a @click="activeModal=true, modal='register', goTo='Profile'"
+                                    class=" boton1 c-flex">Join
+                                    me!</a>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!--                 <section class="flex justify-center w-full h-[100vh] overflow-hidden mt-10 relative">
+
+                    <div class="overflow-hidden relative bg-[url('/web/assets/imgArtistaDestacado1.png')] bg-center bg-[lenght:300%] bg-no-repeat w-full h-[100vh]"></div>
+
+                </section> -->
+
+
+                <img class="place-sel-center scale-[0.4] mt-9 opacity-70 transition-all ease-in-out duration-1000 filtro1 hover:filtro2 -scale-y-[0.4] w-full"
+                    src="/web/assets/sep4.png" alt="">
+
+
+                <!-- FOOTER -->
+                <footer class="md:ml-40 font-quicksand">
+
+
+
+                    <div class="px-5 py-24 md:flex overflow-hidden md:flex-nowrap flex-wra">
+                        <!-- md:flex-row md:flex-nowrap flex-wrap flex-col overflow-hidden -->
+                        <div
+                            class="w-64 flex-shrink-0 md:mx-0  md:text-left md:mt-0 mt-10 items-center md:justify-start justify-center place-items-center content-center inline m-0">
+                            <img :src=" tema=='tema_4' || tema=='tema_5' || tema=='tema_6' ? '/web/assets/logo02L.png' : '/web/assets/logo01L.png'"
+                                class="w-[60%] h-[60%] aparecer transition-all ease-in-out duration-1000 hover:filtro1"
+                                :class="tema=='tema_4' || tema=='tema_5' || tema=='tema_6' ? 'filtro2 hover:filtro1' : 'filtro1 hover:filtro2'"
+                                alt="logo">
+                        </div>
+
+                        <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
+                            <div class="lg:w-1/4 md:w-1/2  px-4 inline">
+                                <h2 class="title-font font-medium text-skin-accent tracking-widest text-sm mb-3 ">
+                                    ART
+                                    GALLERIES AROUND THE
+                                    WORLD</h2>
+                                <nav class="list-none mb-10">
+                                    <li>
+                                        <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                            href="https://morettigallery.com/">Galleria Moretti</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                            href="https://ariaartgallery.com/">Aria Art Gallery</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                            href="https://www.florenceartgallery.com/">Florence Art Gallery</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                            href="https://www.fornaciaiartgallery.com/">Fornaciai Art Gallery</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                            href="http://www.galleriafaustini.it/site/en/">Galleria D'Arte
+                                            Faustini</a>
+                                    </li>
+                                </nav>
+                            </div>
+                            <div class="lg:w-1/4 md:w-1/2 px-4 inline">
+                                <h2 class="title-font font-medium text-skin-accent tracking-widest text-sm mb-3 ">
+                                    LIST
+                                    OF NGOS</h2>
+                                <nav class="list-none mb-10">
+                                    <li>
+                                        <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                            href="https://ngobridges.com/ngo?categories[]=3">Riga German Culture
+                                            Society</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                            href="https://ngobridges.com/ngo?categories[]=3">Linking Foundation</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                            href="https://ngobridges.com/ngo?categories[]=3">MTU Jazzon</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                            href="https://ngobridges.com/ngo?categories[]=3">Island Panorama
+                                            Center</a>
+                                    </li>
+                                </nav>
+                            </div>
+                            <div class="lg:w-1/4 md:w-1/2 px-4 inline">
+                                <h2 class="title-font font-medium text-skin-accent tracking-widest text-sm mb-3 ">
+                                    LIST
+                                    OF AWARDS</h2>
+                                <nav class="list-none mb-10">
+                                    <li>
+                                        <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                            href="https://en.wikipedia.org/wiki/Leonardo_da_Vinci_World_Award_of_Arts">Leonardo
+                                            da Vinci World
+                                            Award of Arts</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                            href="https://en.wikipedia.org/wiki/M%26C_Fine_Arts_Awards">M&C Fine
+                                            Arts
+                                            Awards</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                            href="https://en.wikipedia.org/wiki/Musgrave_Medal">Musgrave Medal</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                            href="https://en.wikipedia.org/wiki/PIPA_Prize">PIPA Prize </a>
+                                    </li>
+                                </nav>
+                            </div>
+                            <div class="lg:w-1/4 md:w-1/2  px-4 inline">
+                                <h2 class="title-font font-medium text-skin-accent tracking-widest text-sm mb-3 ">
+                                    ART
+                                    SCHOLARSHIPS AROUND
+                                    THE WORLD</h2>
+                                <nav class="list-none mb-10">
+                                    <li>
+                                        <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                            href="https://www.unsw.edu.au/arts-design-architecture/study-with-us/scholarships-and-prizes">Art
+                                            and design Scholarships @ UNSW</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                            href="https://www.rmit.edu.au/students/careers-opportunities/scholarships">Art,
+                                            fashion and textiles
+                                            scholarships @ RMIT University </a>
+                                    </li>
+                                    <li>
+                                        <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                            href="https://finearts-music.unimelb.edu.au/study-with-us/scholarships">Fine
+                                            arts and music
+                                            scholarships</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-skin-base text-opacity-60 hover:text-opacity-100"
+                                            href="https://www.krylon.com/community/krylon-clear-choice-art-scholarship/">Krylon
+                                            Clear Choice Art
+                                            Scholarship </a>
+                                    </li>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-skin-muted bg-opacity-20">
+                        <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row md:pl-20 pl-72">
+                            <p class="text-gray-500 text-sm text-center sm:text-left">© 2022 MindHub —
+                                <a href="https://twitter.com/knyttneve" rel="noopener noreferrer"
+                                    class="text-gray-600 ml-1" target="_blank">@knyttneve</a>
+                            </p>
+                            <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start filtro1">
+                                <a class="text-gray-500 hover:filtro2">
+                                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z">
+                                        </path>
+                                    </svg>
+                                </a>
+                                <a class="ml-3 text-gray-500 hover:filtro2">
+                                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                        <path
+                                            d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+                                        </path>
+                                    </svg>
+                                </a>
+                                <a class="ml-3 text-gray-500 hover:filtro2">
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                                    </svg>
+                                </a>
+                                <a class="ml-3 text-gray-500 hover:filtro2">
+                                    <svg fill="currentColor" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                                        <path stroke="none"
+                                            d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z">
+                                        </path>
+                                        <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                                    </svg>
+                                </a>
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                </footer>
+
+                <div class="relative">
+                    <img src="/web/assets/est09s2.png"
+                        class="absolute w-80 md:w-auto md:h-[600px] bottom-0 left-0 z-20 m-0 hidden md:block" alt="">
+                </div>
+
+
+            </main>
+
+
+            <!-- ---------------------- MODALES ----------------------------- -->
+
+            <!-- MODAL DE LOGIN Y REGISTRO-->
+            <div class="fixed top-0 left-0 w-full h-full glass2 c-flex aparecer bg-opacity-80 z-[42]"
+                v-show="modalLoginRegister==true">
+                <div
+                    class=" w-full md:w-auto mx-3 flex flex-col justify-between items-center glass1 aparecer rounded-lg z-[42]">
+                    <!-- X -->
+                    <div
+                        class="flex justify-end items-end text-skin-base content-end w-full font-bahnschrift font-bold">
+                        <button class="mt-2 mr-4" @click="modalLoginRegister=false">X</button>
+                    </div>
+                    <!-- content login-->
+
+                    <div class="flex flex-col justify-center items-center h-full w-full md:w-auto"
+                        v-show="modal=='login'">
+                        <h2 class="text-lg font-bold text-skin-muted md:text-2xl md:mb-5 ">Login</h2>
+                        <div class="w-full  flex flex-col justify-center px-7 text-sm">
+                            <div
+                                class="w-full flex  justify-between items-center mb-3 md:mb-5 text-skin-accent font-bahnschrift text-xs">
+                                <label class="mr-3" for="login-email">YOUR EMAIL</label>
+                                <input id="login-email" type="text"
+                                    class=" rounded-md  text-gray-800 "
+                                    placeholder="name@company.com" required="" v-model="login.email">
+                            </div>
+                            <div class="w-full flex  justify-between items-center md:mb-5">
+                                <label class="mr-3 text-skin-accent font-bahnschrift text-xs" for="login-password">YOUR
+                                    PASSWORD</label>
+                                <input id="login-password" type="password"
+                                    class="rounded-md  text-gray-800" placeholder="••••••••"
+                                    required="" v-model="login.password">
+                            </div>
+
+                        </div>
+                        <div class="w-full flex flex-col justify-center items-center">
+                            <button class="w-3/4 text-skin-muted font-medium rounded-lg text-sm boton3 mx-4"
+                                @click="loginAccount">Login
+                                to your account</button>
+                            <div class="text-sm font-medium pb-6  text-opacity-60 "
+                                :class="tema=='tema_1' || tema=='tema_2' ||tema=='tema_3' ? 'text-black' : 'text-skin-base'">
+                                Not registered?
+                                <a class="text-skin-muted hover:underline " @click="modal='register'">Create
+                                    account</a>
+                            </div>
+                            <p>{{mjeError}}</p>
+                        </div>
+                    </div>
+
+                    <!-- content register -->
+                    <div v-show="modal=='register'"
+                        class="flex flex-col justify-center items-center h-full w-full aparecer">
+                        <h2 class="text-lg font-bold text-skin-muted md:text-2xl">I am a...</h2>
+                        <div class="flex flex-col justify-center items-center md:flex-row">
+                            <button class=" px-4 md:mr-10 flex flex-col justify-center items-center boton2"
+                                @click="modal='register2', userType='CLIENT'">
+                                <div class="rounded-lg  overflow-hidden">
+                                    <img alt="content"
+                                        class="object-cover object-center h-[140px] w-[175px] md:h-[200px] md:w-[200px]"
+                                        src="https://media.istockphoto.com/photos/sleeping-cherub-picture-id146812696?k=20&m=146812696&s=612x612&w=0&h=US_nz-Ja0sDHE1JYfpHTF9t6gsBlftfCyQitsT41TqY=">
+                                </div>
+                                <h2 class="text-base  text-skin-muted font-bahnschrift font-bold mt-2 mb-2">ART LOVER
+                                </h2>
+                                <p class="leading-relaxed text-xs  text-opacity-70 text-skin-inverted font-bold">I want
+                                    to see the
+                                    creations
+                                </p>
+
+                            </button>
+                            <button class="boton2 px-4 flex flex-col justify-center items-center"
+                                @click="modal='register2', userType='ARTIST'">
+                                <div class="rounded-lg overflow-hidden">
+                                    <img alt="content"
+                                        class="object-cover object-center h-[140px] w-[175px] md:h-[200px] md:w-[200px]"
+                                        src="https://media.istockphoto.com/photos/leonardo-da-vinci-statues-in-florence-picture-id637238568?k=20&m=637238568&s=612x612&w=0&h=brx6PL3ICMtcSccozesRe6Ixj3p22i2rYrKkcac493g=">
+                                </div>
+                                <h2 class="text-base font-bold text-skin-muted font-bahnschrift mt-2 mb-2">ARTIST</h2>
+                                <p class="leading-relaxed text-xs text-skin-inverted text-opacity-70 font-bold">I am a
+                                    creator
+                                </p>
+
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- content register2 -->
+                    <div v-show="modal=='register2'"
+                        class="flex flex-col justify-center items-center aparecer my-6 w-full px-7">
+                        <h2 class=" text-center text-lg font-bold text-skin-muted md:text-2xl mb-3"
+                            v-show="userType=='ARTIST'">
+                            Mr.
+                            Artist
+                            please complete the form</h2>
+                        <h2 class="text-lg font-bold text-skin-muted md:text-2xl mb-3" v-show="userType=='CLIENT'">Mr.
+                            Art
+                            Lover please complete the form</h2>
+                        <div class="text-xs md:text-lg">
+                            <div class="w-full flex  justify-between items-center mb-2">
+                                <label class="mr-3 text-base font-bold text-skin-base font-bahnschrift"
+                                    for="register-name">Name:</label>
+                                <input id="register-name" type="text"
+                                    class=" rounded-md text-gray-800" placeholder="Blake"
+                                    required="" v-model="register.name">
+                            </div>
+                            <div class="w-full flex  justify-between items-center mb-2">
+                                <label class="mr-3 text-base font-bold text-skin-base font-bahnschrift"
+                                    for="register-lastname">Last
+                                    Name:</label>
+                                <input id="register-lastname" type="text"
+                                    class="rounded-md text-gray-800" placeholder="Walker"
+                                    required="" v-model="register.lastName">
+                            </div>
+                            <div class="w-full flex  justify-between items-center mb-2">
+                                <label class="mr-3 text-base font-bold text-skin-base font-bahnschrift"
+                                    for="register-email">Email:</label>
+                                <input id="register-email" type="text"
+                                    class=" rounded-md text-gray-800"
+                                    placeholder="name@company.com" required="" v-model="register.email">
+                            </div>
+                            <div class="w-full flex  justify-between items-center mb-2">
+                                <label class="mr-3 text-base font-bold text-skin-base font-bahnschrift"
+                                    for="register-password">Password</label>
+                                <input id="register-password" type="password"
+                                    class="rounded-md text-gray-800" placeholder="••••••••"
+                                    required="" v-model="register.password">
+                            </div>
+                            <div class="w-full flex  justify-between items-center mb-4">
+                                <label class="mr-3 text-base font-bold text-skin-base font-bahnschrift"
+                                    for="register-password2">Password (again)</label>
+                                <input id="register-password2" type="password"
+                                    class="rounded-md text-gray-800" placeholder="••••••••"
+                                    required="" v-model="repeatedPassword">
+                            </div>
+                            <div class="w-full flex  justify-between items-center mb-2">
+                                <input id="terms" type="checkbox" value="" class="w-4 h-4 " required=""
+                                    v-model="termsOfServiceChecked">
+                                <label for="terms" class="text-base font-bold text-skin-base font-bahnschrift">I
+                                    agree
+                                    with
+                                    the <a href="#" class="text-blue-600 hover:underline dark:text-blue-500">terms
+                                        and conditions</a></label>
+                            </div>
+
+
+                        </div>
+                        <div class="boton3" @click="createAccount">Create Account</div>
+                        <p class="text-red-500 text-bold text-sm md:text-lg">{{mjeError}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- MODAL MENSAJE SENCILLO, SIN BOTONES -->
+            <div v-show="modalSimple==true"
+                class="aparecer fixed top-0 left-0 flex justify-center bg-opacity-80 aparecer z-[43] w-full h-full glass2">
+
+                <div
+                    class="flex flex-col justify-center items-center mt-10 bg-skin-normal filter-none w-96 h-52 rounded-2xl shadow-sm border border-slate-300">
+                    <!-- X -->
+                    <div class="flex justify-end items-end content-end w-full">
+                        <button class="mt-2 mr-4" @click="modalSimple=false">X</button>
+                    </div>
+                    <p class="text-skin-base text-center p-2 m-1 font-bold"><b>Successful account access!</b>
+                    </p>
+                    <div>
+                        <button class="boton2" @click="modalSimple=false">Stay here</button>
+                        <button v-show="goTo!=''" class="boton2 ml-3" @click="redirect">Go to {{goTo}}</button>
+                    </div>
+                </div>
+
+            </div>
+            <!-- MODAL DE PERFIL/ UPLOAD PHOTO -->
+            <div v-show="modalUploadPhoto==true"
+                class="aparecer fixed top-0 left-0 flex justify-center bg-opacity-80 aparecer z-[42] w-full h-full glass2">
+            </div>
+            <div v-show="modalUploadPhoto==true"
+                class="aparecer fixed top-0 left-0 flex justify-center justify-items-center content-center w-full h-full z-50">
+                <!-- DETALLES PERFIL -->
+                <div href="#"
+                    class="m-5 overflow-hidden bg-skin-inverted bg-opacity-60 rounded-t-2xl rounded-b-3xl md:flex md:w-4/5 md:h-2/3 aspect-card2 shadow-[0px_8px_24px_rgba(var(--color-text-base),.05)] flex flex-col justify-center items-center">
+                    <img :src="profileImage" alt="" class="h-40 rounded-full w-40">
+                    <p class=" text-skin-inverted text-center text-2xl font-bahnschrift">{{profileInfo.name}}
+                        {{profileInfo.lastName}}</p>
+                    <button class=" boton2" @click="changeImage=true">Change Image</button>
+                    <div v-show="changeImage==true" class="mt-3 flex flex-col justify-center items-center">
+                        <div class="form-floating mb-3 flex flex-col">
+                            <label for="avatar">Choose an image:</label>
+                            <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"
+                                @change="select_file" class="boton2">
+                        </div>
+                    </div>
+                    <div class="flex justify-around pt-2">
+                        <button
+                            class="w-32 h-12 text-skin-base bg-red-600 bg-opacity-70 p-3 font-bahnschrift text-sm hover:shadow-[1px_1px_5px_rgba(220,38,38,0.8)] rounded-tl-2xl rounded-b-2xl hover:rounded-t-3xl hover:rounded-br-3xl hover:rounded-bl-none ease-in duration-300 hover:bg-opacity-100"
+                            @click="modalUploadPhoto=false">return</button>
+                        <button v-show="changeImage==true"
+                            class="w-32 h-12 text-skin-base font-bold bg-skin-normal p-3 text-sm font-bahnschrift shadow-[0px_0px_1px_rgba(var(--color-text-base),0.4)] hover:shadow-[1px_1px_5px_rgba(var(--color-normal),0.8)] rounded-b-2xl rounded-tr-2xl hover:rounded-l-3xl hover:rounded-tr-3xl hover:rounded-br-none  ease-in duration-300 hover:filtro2"
+                            @click="editPhoto">
+                            upload
+                            photo</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="/node_modules/basicscroll/dist/basicScroll.min.js"></script>
+    <script src="./web/scripts/main.js"></script>
+    <!-- librería flowbite -->
+    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+
+
+</body>
+
+
+
+
+</html>
